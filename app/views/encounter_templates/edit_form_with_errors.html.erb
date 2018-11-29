@@ -18,15 +18,6 @@
 <!-- Form encounter end -->
 
   <!-- Label and input for provider_id start -->
-  <div class="form-group">
-    <label for="provider_id">
-      Provider
-    </label>
-
-    <!-- Input for provider_id start -->
-    <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @encounter.provider_id), :class => "form-control") %>
-    <!-- Input for provider_id end -->
-  </div>
   <!-- Label and input for provider_id end -->
 
   <!-- Label and input for patient_id start -->

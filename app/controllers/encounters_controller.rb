@@ -84,7 +84,7 @@ class EncountersController < ApplicationController
   def update_row
     @encounter = Encounter.find(params.fetch("id_to_modify"))
 
-    @encounter.provider_id = params.fetch("provider_id")
+    
     @encounter.patient_id = params.fetch("patient_id")
     @encounter.chief_complaint = params.fetch("chief_complaint")
     @encounter.notes = params.fetch("notes")
