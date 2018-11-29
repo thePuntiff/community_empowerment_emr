@@ -4,6 +4,8 @@ RSpec.describe Patient, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:sex) }
+
     it { should have_many(:prescriptions) }
 
     it { should have_many(:encounters) }
