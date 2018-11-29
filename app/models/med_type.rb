@@ -6,6 +6,10 @@ class MedType < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :prescriptions,
+             :through => :medications,
+             :source => :prescriptions
+
   # Validations
 
 end

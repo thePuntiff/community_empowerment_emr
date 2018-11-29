@@ -10,6 +10,8 @@ RSpec.describe MedType, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:prescriptions) }
+
     end
 
     describe "Validations" do

@@ -12,6 +12,10 @@ class Prescription < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :med_type,
+             :through => :medication,
+             :source => :med_type
+
   # Validations
 
 end
