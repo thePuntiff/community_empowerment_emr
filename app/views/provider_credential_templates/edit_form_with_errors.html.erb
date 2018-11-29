@@ -36,7 +36,7 @@
     </label>
 
     <!-- Input for credential_id start -->
-    <input type="text" id="credential_id" name="credential_id" class="form-control" value="<%= @provider_credential.credential_id %>">
+    <%= select_tag(:credential_id, options_from_collection_for_select(Credential.all, :id, :name, @provider_credential.credential_id), :class => "form-control") %>
     <!-- Input for credential_id end -->
   </div>
   <!-- Label and input for credential_id end -->
