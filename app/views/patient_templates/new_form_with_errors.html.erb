@@ -51,7 +51,7 @@
     </label>
 
     <!-- Input for sex_id start -->
-    <input type="text" id="sex_id" name="sex_id" class="form-control" value="<%= @patient.sex_id %>">
+    <%= select_tag(:sex_id, options_from_collection_for_select(Sex.all, :id, :name, @patient.sex_id), :class => "form-control") %>
     <!-- Input for sex_id end -->
   </div>
   <!-- Label and input for sex_id end -->
