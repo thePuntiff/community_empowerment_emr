@@ -4,6 +4,8 @@ RSpec.describe Encounter, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:prescriptions) }
+
     it { should belong_to(:patient) }
 
     it { should belong_to(:approving_provider) }

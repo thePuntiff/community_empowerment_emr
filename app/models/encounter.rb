@@ -1,6 +1,9 @@
 class Encounter < ApplicationRecord
   # Direct associations
 
+  has_many   :prescriptions,
+             :dependent => :destroy
+
   belongs_to :patient
 
   belongs_to :approving_provider,
