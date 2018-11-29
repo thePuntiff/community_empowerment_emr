@@ -1,0 +1,100 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Patient #<%= @patient.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/patients" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link patient start -->
+      <div class="col">
+        <a href="/patients/<%= @patient.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit patient
+        </a>
+      </div>
+      <!-- Edit link patient end -->
+
+      <!-- Delete link patient start -->
+      <div class="col">
+        <a href="/delete_patient/<%= @patient.id %>" class="btn btn-block btn-outline-secondary">
+          Delete patient
+        </a>
+      </div>
+      <!-- Delete link patient end -->
+    </div>
+
+    <dl>
+      <dt>
+        Firstname
+      </dt>
+      <!-- Display firstname start -->
+      <dd>
+        <%= @patient.firstname %>
+      </dd>
+      <!-- Display firstname end -->
+
+      <dt>
+        Lastname
+      </dt>
+      <!-- Display lastname start -->
+      <dd>
+        <%= @patient.lastname %>
+      </dd>
+      <!-- Display lastname end -->
+
+      <dt>
+        Sex
+      </dt>
+      <!-- Display sex_id start -->
+      <dd>
+        <%= @patient.sex_id %>
+      </dd>
+      <!-- Display sex_id end -->
+
+      <dt>
+        Dob
+      </dt>
+      <!-- Display dob start -->
+      <dd>
+        <%= @patient.dob %>
+      </dd>
+      <!-- Display dob end -->
+
+      <dt>
+        Phone num
+      </dt>
+      <!-- Display phone_num start -->
+      <dd>
+        <%= @patient.phone_num %>
+      </dd>
+      <!-- Display phone_num end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@patient.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@patient.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
