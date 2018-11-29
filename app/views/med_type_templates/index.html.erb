@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All med types
+    </h1>
+
+    <a href="/med_types/new" class="btn btn-block btn-outline-secondary">
+      Add a new med type
+    </a>
+  </div>
+</div>
+
+<!-- Ransack Code start -->
+
+<!-- Ransack Code end -->
+
+<!-- Location Map Code start -->
+
+<!-- Location Map Code end -->
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @med_types.each do |med_type| %>
+      <tr>
+        <!-- Display med_type.id start -->
+        <td>
+          <%= med_type.id %>
+        </td>
+        <!-- Display med_type.id end -->
+
+        <!-- Display med_type.name start -->
+        <td>
+          <%= med_type.name %>
+        </td>
+        <!-- Display med_type.name end -->
+
+        <!-- Display med_type.created_at start -->
+        <td>
+          <%= time_ago_in_words(med_type.created_at) %> ago
+        </td>
+        <!-- Display med_type.created_at end -->
+
+        <!-- Display med_type.updated_at start -->
+        <td>
+          <%= time_ago_in_words(med_type.updated_at) %> ago
+        </td>
+        <!-- Display med_type.updated_at end -->
+
+        <td>
+          <a href="/med_types/<%= med_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

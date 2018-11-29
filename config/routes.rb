@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Med type resource:
+
+  # CREATE
+  get("/med_types/new", { :controller => "med_types", :action => "new_form" })
+  post("/create_med_type", { :controller => "med_types", :action => "create_row" })
+
+  # READ
+  get("/med_types", { :controller => "med_types", :action => "index" })
+  get("/med_types/:id_to_display", { :controller => "med_types", :action => "show" })
+
+  # UPDATE
+  get("/med_types/:prefill_with_id/edit", { :controller => "med_types", :action => "edit_form" })
+  post("/update_med_type/:id_to_modify", { :controller => "med_types", :action => "update_row" })
+
+  # DELETE
+  get("/delete_med_type/:id_to_remove", { :controller => "med_types", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Medication resource:
 
   # CREATE
