@@ -34,7 +34,11 @@
       </dt>
       <!-- Display provider_id start -->
       <dd>
-        <%= @encounter.provider_id %>
+        <% if @encounter.provider.present? %>
+          <a href="/providers/<%= @encounter.provider_id %>">
+            <%= @encounter.provider.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display provider_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display patient_id start -->
       <dd>
-        <%= @encounter.patient_id %>
+        <% if @encounter.patient.present? %>
+          <a href="/patients/<%= @encounter.patient_id %>">
+            <%= @encounter.patient.firstname %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display patient_id end -->
 
@@ -70,7 +78,11 @@
       </dt>
       <!-- Display location_id start -->
       <dd>
-        <%= @encounter.location_id %>
+        <% if @encounter.location.present? %>
+          <a href="/locations/<%= @encounter.location_id %>">
+            <%= @encounter.location.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display location_id end -->
 
@@ -79,7 +91,11 @@
       </dt>
       <!-- Display approving_provider_id start -->
       <dd>
-        <%= @encounter.approving_provider_id %>
+        <% if @encounter.approving_provider.present? %>
+          <a href="/providers/<%= @encounter.approving_provider_id %>">
+            <%= @encounter.approving_provider.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display approving_provider_id end -->
 

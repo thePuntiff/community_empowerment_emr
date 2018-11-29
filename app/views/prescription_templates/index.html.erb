@@ -66,25 +66,41 @@
 
         <!-- Display prescription.patient_id start -->
         <td>
-          <%= prescription.patient.firstname %>
+          <% if prescription.patient.present? %>
+            <a href="/patients/<%= prescription.patient.id %>">
+              <%= prescription.patient.firstname %>
+            </a>
+          <% end %>
         </td>
         <!-- Display prescription.patient_id end -->
 
         <!-- Display prescription.provider_id start -->
         <td>
-          <%= prescription.provider.created_at %>
+          <% if prescription.provider.present? %>
+            <a href="/providers/<%= prescription.provider.id %>">
+              <%= prescription.provider.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display prescription.provider_id end -->
 
         <!-- Display prescription.encounter_id start -->
         <td>
-          <%= prescription.encounter.provider_id %>
+          <% if prescription.encounter.present? %>
+            <a href="/encounters/<%= prescription.encounter.id %>">
+              <%= prescription.encounter.provider_id %>
+            </a>
+          <% end %>
         </td>
         <!-- Display prescription.encounter_id end -->
 
         <!-- Display prescription.medication_id start -->
         <td>
-          <%= prescription.medication.name %>
+          <% if prescription.medication.present? %>
+            <a href="/medications/<%= prescription.medication.id %>">
+              <%= prescription.medication.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display prescription.medication_id end -->
 

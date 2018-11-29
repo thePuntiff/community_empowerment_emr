@@ -58,13 +58,21 @@
 
         <!-- Display provider_credential.provider_id start -->
         <td>
-          <%= provider_credential.provider.created_at %>
+          <% if provider_credential.provider.present? %>
+            <a href="/providers/<%= provider_credential.provider.id %>">
+              <%= provider_credential.provider.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display provider_credential.provider_id end -->
 
         <!-- Display provider_credential.credential_id start -->
         <td>
-          <%= provider_credential.credential.name %>
+          <% if provider_credential.credential.present? %>
+            <a href="/credentials/<%= provider_credential.credential.id %>">
+              <%= provider_credential.credential.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display provider_credential.credential_id end -->
 

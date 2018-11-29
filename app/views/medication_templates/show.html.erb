@@ -43,7 +43,11 @@
       </dt>
       <!-- Display med_type_id start -->
       <dd>
-        <%= @medication.med_type_id %>
+        <% if @medication.med_type.present? %>
+          <a href="/med_types/<%= @medication.med_type_id %>">
+            <%= @medication.med_type.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display med_type_id end -->
 

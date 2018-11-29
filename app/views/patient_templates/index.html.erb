@@ -82,7 +82,11 @@
 
         <!-- Display patient.sex_id start -->
         <td>
-          <%= patient.sex.name %>
+          <% if patient.sex.present? %>
+            <a href="/sexes/<%= patient.sex.id %>">
+              <%= patient.sex.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display patient.sex_id end -->
 

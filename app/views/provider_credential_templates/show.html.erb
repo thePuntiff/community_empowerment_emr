@@ -38,7 +38,11 @@
       </dt>
       <!-- Display provider_id start -->
       <dd>
-        <%= @provider_credential.provider_id %>
+        <% if @provider_credential.provider.present? %>
+          <a href="/providers/<%= @provider_credential.provider_id %>">
+            <%= @provider_credential.provider.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display provider_id end -->
 
@@ -47,7 +51,11 @@
       </dt>
       <!-- Display credential_id start -->
       <dd>
-        <%= @provider_credential.credential_id %>
+        <% if @provider_credential.credential.present? %>
+          <a href="/credentials/<%= @provider_credential.credential_id %>">
+            <%= @provider_credential.credential.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display credential_id end -->
 

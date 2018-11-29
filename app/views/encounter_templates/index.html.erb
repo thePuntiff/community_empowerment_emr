@@ -74,13 +74,21 @@
 
         <!-- Display encounter.provider_id start -->
         <td>
-          <%= encounter.provider.created_at %>
+          <% if encounter.provider.present? %>
+            <a href="/providers/<%= encounter.provider.id %>">
+              <%= encounter.provider.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display encounter.provider_id end -->
 
         <!-- Display encounter.patient_id start -->
         <td>
-          <%= encounter.patient.firstname %>
+          <% if encounter.patient.present? %>
+            <a href="/patients/<%= encounter.patient.id %>">
+              <%= encounter.patient.firstname %>
+            </a>
+          <% end %>
         </td>
         <!-- Display encounter.patient_id end -->
 
@@ -98,13 +106,21 @@
 
         <!-- Display encounter.location_id start -->
         <td>
-          <%= encounter.location.name %>
+          <% if encounter.location.present? %>
+            <a href="/locations/<%= encounter.location.id %>">
+              <%= encounter.location.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display encounter.location_id end -->
 
         <!-- Display encounter.approving_provider_id start -->
         <td>
-          <%= encounter.approving_provider.created_at %>
+          <% if encounter.approving_provider.present? %>
+            <a href="/providers/<%= encounter.approving_provider.id %>">
+              <%= encounter.approving_provider.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display encounter.approving_provider_id end -->
 

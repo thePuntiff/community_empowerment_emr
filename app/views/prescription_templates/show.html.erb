@@ -34,7 +34,11 @@
       </dt>
       <!-- Display patient_id start -->
       <dd>
-        <%= @prescription.patient_id %>
+        <% if @prescription.patient.present? %>
+          <a href="/patients/<%= @prescription.patient_id %>">
+            <%= @prescription.patient.firstname %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display patient_id end -->
 
@@ -43,7 +47,11 @@
       </dt>
       <!-- Display provider_id start -->
       <dd>
-        <%= @prescription.provider_id %>
+        <% if @prescription.provider.present? %>
+          <a href="/providers/<%= @prescription.provider_id %>">
+            <%= @prescription.provider.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display provider_id end -->
 
@@ -52,7 +60,11 @@
       </dt>
       <!-- Display encounter_id start -->
       <dd>
-        <%= @prescription.encounter_id %>
+        <% if @prescription.encounter.present? %>
+          <a href="/encounters/<%= @prescription.encounter_id %>">
+            <%= @prescription.encounter.provider_id %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display encounter_id end -->
 
@@ -61,7 +73,11 @@
       </dt>
       <!-- Display medication_id start -->
       <dd>
-        <%= @prescription.medication_id %>
+        <% if @prescription.medication.present? %>
+          <a href="/medications/<%= @prescription.medication_id %>">
+            <%= @prescription.medication.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display medication_id end -->
 

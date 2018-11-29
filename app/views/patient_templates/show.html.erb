@@ -52,7 +52,11 @@
       </dt>
       <!-- Display sex_id start -->
       <dd>
-        <%= @patient.sex_id %>
+        <% if @patient.sex.present? %>
+          <a href="/sexes/<%= @patient.sex_id %>">
+            <%= @patient.sex.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display sex_id end -->
 
