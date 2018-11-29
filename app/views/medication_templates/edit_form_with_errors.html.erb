@@ -36,7 +36,7 @@
     </label>
 
     <!-- Input for med_type_id start -->
-    <input type="text" id="med_type_id" name="med_type_id" class="form-control" value="<%= @medication.med_type_id %>">
+    <%= select_tag(:med_type_id, options_from_collection_for_select(MedType.all, :id, :name, @medication.med_type_id), :class => "form-control") %>
     <!-- Input for med_type_id end -->
   </div>
   <!-- Label and input for med_type_id end -->
