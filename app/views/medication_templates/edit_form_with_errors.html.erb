@@ -1,0 +1,53 @@
+<!-- Validation failure messages -->
+<% if @medication.errors.any? %>
+  <% @medication.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit medication #<%= @medication.id %>
+</h1>
+
+<hr>
+
+<!-- Form medication start -->
+<form action="/update_medication/<%= @medication.id %>" method="post">
+<!-- Form medication end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @medication.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for med_type_id start -->
+  <div class="form-group">
+    <label for="med_type_id">
+      Med type
+    </label>
+
+    <!-- Input for med_type_id start -->
+    <input type="text" id="med_type_id" name="med_type_id" class="form-control" value="<%= @medication.med_type_id %>">
+    <!-- Input for med_type_id end -->
+  </div>
+  <!-- Label and input for med_type_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update medication
+  </button>
+</form>
+
+<hr>
+
+<a href="/medications">
+  Go back
+</a>

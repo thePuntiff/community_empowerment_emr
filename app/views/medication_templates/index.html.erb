@@ -1,0 +1,92 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All medications
+    </h1>
+
+    <a href="/medications/new" class="btn btn-block btn-outline-secondary">
+      Add a new medication
+    </a>
+  </div>
+</div>
+
+<!-- Ransack Code start -->
+
+<!-- Ransack Code end -->
+
+<!-- Location Map Code start -->
+
+<!-- Location Map Code end -->
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Med type
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @medications.each do |medication| %>
+      <tr>
+        <!-- Display medication.id start -->
+        <td>
+          <%= medication.id %>
+        </td>
+        <!-- Display medication.id end -->
+
+        <!-- Display medication.name start -->
+        <td>
+          <%= medication.name %>
+        </td>
+        <!-- Display medication.name end -->
+
+        <!-- Display medication.med_type_id start -->
+        <td>
+          <%= medication.med_type_id %>
+        </td>
+        <!-- Display medication.med_type_id end -->
+
+        <!-- Display medication.created_at start -->
+        <td>
+          <%= time_ago_in_words(medication.created_at) %> ago
+        </td>
+        <!-- Display medication.created_at end -->
+
+        <!-- Display medication.updated_at start -->
+        <td>
+          <%= time_ago_in_words(medication.updated_at) %> ago
+        </td>
+        <!-- Display medication.updated_at end -->
+
+        <td>
+          <a href="/medications/<%= medication.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Medication resource:
+
+  # CREATE
+  get("/medications/new", { :controller => "medications", :action => "new_form" })
+  post("/create_medication", { :controller => "medications", :action => "create_row" })
+
+  # READ
+  get("/medications", { :controller => "medications", :action => "index" })
+  get("/medications/:id_to_display", { :controller => "medications", :action => "show" })
+
+  # UPDATE
+  get("/medications/:prefill_with_id/edit", { :controller => "medications", :action => "edit_form" })
+  post("/update_medication/:id_to_modify", { :controller => "medications", :action => "update_row" })
+
+  # DELETE
+  get("/delete_medication/:id_to_remove", { :controller => "medications", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Location resource:
 
   # CREATE
