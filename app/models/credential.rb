@@ -6,6 +6,10 @@ class Credential < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :providers,
+             :through => :provider_credentials,
+             :source => :provider
+
   # Validations
 
 end

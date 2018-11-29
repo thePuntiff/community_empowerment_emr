@@ -14,6 +14,10 @@ class Provider < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :credentials,
+             :through => :provider_credentials,
+             :source => :credential
+
   # Validations
 
   # Include default devise modules. Others available are:
