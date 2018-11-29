@@ -1,6 +1,8 @@
 class Provider < ApplicationRecord
   # Direct associations
 
+  has_many   :encounters
+
   has_many   :provider_credentials,
              :dependent => :destroy
 
