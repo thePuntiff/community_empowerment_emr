@@ -1,0 +1,112 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All providers
+    </h1>
+
+    <a href="/providers/new" class="btn btn-block btn-outline-secondary">
+      Add a new provider
+    </a>
+  </div>
+</div>
+
+<!-- Ransack Code start -->
+
+<!-- Ransack Code end -->
+
+<!-- Location Map Code start -->
+
+<!-- Location Map Code end -->
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Firstname
+        </th>
+
+        <th>
+          Lastname
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Password
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @providers.each do |provider| %>
+      <tr>
+        <!-- Display provider.id start -->
+        <td>
+          <%= provider.id %>
+        </td>
+        <!-- Display provider.id end -->
+
+        <!-- Display provider.firstname start -->
+        <td>
+          <%= provider.firstname %>
+        </td>
+        <!-- Display provider.firstname end -->
+
+        <!-- Display provider.lastname start -->
+        <td>
+          <%= provider.lastname %>
+        </td>
+        <!-- Display provider.lastname end -->
+
+        <!-- Display provider.email start -->
+        <td>
+          <%= provider.email %>
+        </td>
+        <!-- Display provider.email end -->
+
+        <!-- Display provider.password start -->
+        <td>
+          <%= provider.password %>
+        </td>
+        <!-- Display provider.password end -->
+
+        <!-- Display provider.created_at start -->
+        <td>
+          <%= time_ago_in_words(provider.created_at) %> ago
+        </td>
+        <!-- Display provider.created_at end -->
+
+        <!-- Display provider.updated_at start -->
+        <td>
+          <%= time_ago_in_words(provider.updated_at) %> ago
+        </td>
+        <!-- Display provider.updated_at end -->
+
+        <td>
+          <a href="/providers/<%= provider.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
