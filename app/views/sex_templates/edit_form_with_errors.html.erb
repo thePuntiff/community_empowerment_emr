@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @sex.errors.any? %>
   <% @sex.errors.full_messages.each do |message| %>
     <div class="alert">
@@ -13,21 +12,15 @@
 
 <hr>
 
-<!-- Form sex start -->
 <form action="/update_sex/<%= @sex.id %>" method="post">
-<!-- Form sex end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <label for="name">
       Name
     </label>
 
-    <!-- Input for name start -->
     <input type="text" id="name" name="name" class="form-control" value="<%= @sex.name %>">
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update sex

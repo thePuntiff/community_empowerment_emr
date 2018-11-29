@@ -4,48 +4,32 @@
 
 <hr>
 
-<!-- Form prescription start -->
 <form action="/update_prescription/<%= @prescription.id %>" method="post">
-<!-- Form prescription end -->
 
-  <!-- Label and input for patient_id start -->
   <div class="form-group">
     <label for="patient_id">
       Patient
     </label>
 
-    <!-- Input for patient_id start -->
     <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :firstname, @prescription.patient_id), :class => "form-control") %>
-    <!-- Input for patient_id end -->
   </div>
-  <!-- Label and input for patient_id end -->
 
-  <!-- Label and input for provider_id start -->
-  <!-- Label and input for provider_id end -->
 
-  <!-- Label and input for encounter_id start -->
   <div class="form-group">
     <label for="encounter_id">
       Encounter
     </label>
 
-    <!-- Input for encounter_id start -->
     <%= select_tag(:encounter_id, options_from_collection_for_select(Encounter.all, :id, :provider_id, @prescription.encounter_id), :class => "form-control") %>
-    <!-- Input for encounter_id end -->
   </div>
-  <!-- Label and input for encounter_id end -->
 
-  <!-- Label and input for medication_id start -->
   <div class="form-group">
     <label for="medication_id">
       Medication
     </label>
 
-    <!-- Input for medication_id start -->
     <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name, @prescription.medication_id), :class => "form-control") %>
-    <!-- Input for medication_id end -->
   </div>
-  <!-- Label and input for medication_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update prescription

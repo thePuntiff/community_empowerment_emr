@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @patient.encounters.each do |encounter| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/encounters/<%= encounter.id %>">
           <%= encounter.provider_id %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <a href="/delete_encounter_from_patient/<%= encounter.id %>">
           Delete
         </a>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="patient_encounters_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "patient_templates/patient_encounters_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

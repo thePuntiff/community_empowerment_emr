@@ -10,17 +10,13 @@
   </div>
 </div>
 
-<!-- Ransack Code start -->
 <div class="row">
   <div class="col-md-12 mb-3">
     <%= render partial: "medication_templates/medications_search_form" %>
   </div>
 </div>
-<!-- Ransack Code end -->
 
-<!-- Location Map Code start -->
 
-<!-- Location Map Code end -->
 
 <hr>
 
@@ -54,19 +50,14 @@
 
       <% @medications.each do |medication| %>
       <tr>
-        <!-- Display medication.id start -->
         <td>
           <%= medication.id %>
         </td>
-        <!-- Display medication.id end -->
 
-        <!-- Display medication.name start -->
         <td>
           <%= medication.name %>
         </td>
-        <!-- Display medication.name end -->
 
-        <!-- Display medication.med_type_id start -->
         <td>
           <% if medication.med_type.present? %>
             <a href="/med_types/<%= medication.med_type.id %>">
@@ -74,19 +65,14 @@
             </a>
           <% end %>
         </td>
-        <!-- Display medication.med_type_id end -->
 
-        <!-- Display medication.created_at start -->
         <td>
           <%= time_ago_in_words(medication.created_at) %> ago
         </td>
-        <!-- Display medication.created_at end -->
 
-        <!-- Display medication.updated_at start -->
         <td>
           <%= time_ago_in_words(medication.updated_at) %> ago
         </td>
-        <!-- Display medication.updated_at end -->
 
         <td>
           <a href="/medications/<%= medication.id %>">

@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link provider_credential start -->
       <div class="col">
         <% if current_provider == @provider_credential.provider %>
           <a href="/provider_credentials/<%= @provider_credential.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link provider_credential end -->
 
-      <!-- Delete link provider_credential start -->
       <div class="col">
         <% if current_provider == @provider_credential.provider %>
           <a href="/delete_provider_credential/<%= @provider_credential.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,14 +26,12 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link provider_credential end -->
     </div>
 
     <dl>
       <dt>
         Provider
       </dt>
-      <!-- Display provider_id start -->
       <dd>
         <% if @provider_credential.provider.present? %>
           <a href="/providers/<%= @provider_credential.provider_id %>">
@@ -44,12 +39,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display provider_id end -->
 
       <dt>
         Credential
       </dt>
-      <!-- Display credential_id start -->
       <dd>
         <% if @provider_credential.credential.present? %>
           <a href="/credentials/<%= @provider_credential.credential_id %>">
@@ -57,28 +50,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display credential_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@provider_credential.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@provider_credential.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

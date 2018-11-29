@@ -11,28 +11,23 @@
         </a>
       </div>
 
-      <!-- Edit link encounter start -->
       <div class="col">
         <a href="/encounters/<%= @encounter.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit encounter
         </a>
       </div>
-      <!-- Edit link encounter end -->
 
-      <!-- Delete link encounter start -->
       <div class="col">
         <a href="/delete_encounter/<%= @encounter.id %>" class="btn btn-block btn-outline-secondary">
           Delete encounter
         </a>
       </div>
-      <!-- Delete link encounter end -->
     </div>
 
     <dl>
       <dt>
         Provider
       </dt>
-      <!-- Display provider_id start -->
       <dd>
         <% if @encounter.provider.present? %>
           <a href="/providers/<%= @encounter.provider_id %>">
@@ -40,12 +35,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display provider_id end -->
 
       <dt>
         Patient
       </dt>
-      <!-- Display patient_id start -->
       <dd>
         <% if @encounter.patient.present? %>
           <a href="/patients/<%= @encounter.patient_id %>">
@@ -53,30 +46,24 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display patient_id end -->
 
       <dt>
         Chief complaint
       </dt>
-      <!-- Display chief_complaint start -->
       <dd>
         <%= @encounter.chief_complaint %>
       </dd>
-      <!-- Display chief_complaint end -->
 
       <dt>
         Notes
       </dt>
-      <!-- Display notes start -->
       <dd>
         <%= @encounter.notes %>
       </dd>
-      <!-- Display notes end -->
 
       <dt>
         Location
       </dt>
-      <!-- Display location_id start -->
       <dd>
         <% if @encounter.location.present? %>
           <a href="/locations/<%= @encounter.location_id %>">
@@ -84,12 +71,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display location_id end -->
 
       <dt>
         Approving provider
       </dt>
-      <!-- Display approving_provider_id start -->
       <dd>
         <% if @encounter.approving_provider.present? %>
           <a href="/providers/<%= @encounter.approving_provider_id %>">
@@ -97,33 +82,26 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display approving_provider_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@encounter.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@encounter.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "encounter_templates/encounter_prescriptions" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

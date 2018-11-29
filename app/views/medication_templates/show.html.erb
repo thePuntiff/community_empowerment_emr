@@ -11,37 +11,30 @@
         </a>
       </div>
 
-      <!-- Edit link medication start -->
       <div class="col">
         <a href="/medications/<%= @medication.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit medication
         </a>
       </div>
-      <!-- Edit link medication end -->
 
-      <!-- Delete link medication start -->
       <div class="col">
         <a href="/delete_medication/<%= @medication.id %>" class="btn btn-block btn-outline-secondary">
           Delete medication
         </a>
       </div>
-      <!-- Delete link medication end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @medication.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Med type
       </dt>
-      <!-- Display med_type_id start -->
       <dd>
         <% if @medication.med_type.present? %>
           <a href="/med_types/<%= @medication.med_type_id %>">
@@ -49,33 +42,26 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display med_type_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@medication.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@medication.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "medication_templates/medication_prescriptions" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

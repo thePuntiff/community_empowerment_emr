@@ -10,11 +10,9 @@
   <ul class="list-group list-group-flush">
     <% @provider.approved_encounters.each do |encounter| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/encounters/<%= encounter.id %>">
           <%= encounter.provider_id %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

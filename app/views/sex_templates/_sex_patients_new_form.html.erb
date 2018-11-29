@@ -1,59 +1,38 @@
-<!-- Form patient start -->
 <form action="/create_patient_from_sex" method="post">
-<!-- Form patient end -->
 
-  <!-- Label and input for firstname start -->
   <div class="form-group">
     <label for="firstname">
       Firstname
     </label>
 
-    <!-- Input for firstname start -->
     <input type="text" id="firstname" name="firstname" class="form-control" value="<%= @patient.firstname %>">
-    <!-- Input for firstname end -->
   </div>
-  <!-- Label and input for firstname end -->
 
-  <!-- Label and input for lastname start -->
   <div class="form-group">
     <label for="lastname">
       Lastname
     </label>
 
-    <!-- Input for lastname start -->
     <input type="text" id="lastname" name="lastname" class="form-control" value="<%= @patient.lastname %>">
-    <!-- Input for lastname end -->
   </div>
-  <!-- Label and input for lastname end -->
 
-  <!-- Label and input for sex_id start -->
-  <!-- Input for sex_id start -->
   <input type="hidden" name="sex_id" value="<%= @sex.id %>">
-  <!-- Input for sex_id end -->
 
-  <!-- Label and input for dob start -->
   <div class="form-group">
     <label for="dob">
       Dob
     </label>
 
-    <!-- Input for dob start -->
     <input type="text" id="dob" name="dob" class="form-control" value="<%= @patient.dob %>">
-    <!-- Input for dob end -->
   </div>
-  <!-- Label and input for dob end -->
 
-  <!-- Label and input for phone_num start -->
   <div class="form-group">
     <label for="phone_num">
       Phone num
     </label>
 
-    <!-- Input for phone_num start -->
     <input type="text" id="phone_num" name="phone_num" class="form-control" value="<%= @patient.phone_num %>">
-    <!-- Input for phone_num end -->
   </div>
-  <!-- Label and input for phone_num end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create patient

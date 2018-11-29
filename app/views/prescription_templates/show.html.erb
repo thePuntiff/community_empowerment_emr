@@ -11,28 +11,23 @@
         </a>
       </div>
 
-      <!-- Edit link prescription start -->
       <div class="col">
         <a href="/prescriptions/<%= @prescription.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit prescription
         </a>
       </div>
-      <!-- Edit link prescription end -->
 
-      <!-- Delete link prescription start -->
       <div class="col">
         <a href="/delete_prescription/<%= @prescription.id %>" class="btn btn-block btn-outline-secondary">
           Delete prescription
         </a>
       </div>
-      <!-- Delete link prescription end -->
     </div>
 
     <dl>
       <dt>
         Patient
       </dt>
-      <!-- Display patient_id start -->
       <dd>
         <% if @prescription.patient.present? %>
           <a href="/patients/<%= @prescription.patient_id %>">
@@ -40,12 +35,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display patient_id end -->
 
       <dt>
         Provider
       </dt>
-      <!-- Display provider_id start -->
       <dd>
         <% if @prescription.provider.present? %>
           <a href="/providers/<%= @prescription.provider_id %>">
@@ -53,12 +46,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display provider_id end -->
 
       <dt>
         Encounter
       </dt>
-      <!-- Display encounter_id start -->
       <dd>
         <% if @prescription.encounter.present? %>
           <a href="/encounters/<%= @prescription.encounter_id %>">
@@ -66,12 +57,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display encounter_id end -->
 
       <dt>
         Medication
       </dt>
-      <!-- Display medication_id start -->
       <dd>
         <% if @prescription.medication.present? %>
           <a href="/medications/<%= @prescription.medication_id %>">
@@ -79,28 +68,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display medication_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@prescription.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@prescription.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

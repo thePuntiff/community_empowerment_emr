@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @encounter.present? %>
   <% if @encounter.errors.any? %>
     <% @encounter.errors.full_messages.each do |message| %>
@@ -16,75 +15,49 @@
 
 <hr>
 
-<!-- Form encounter start -->
 <form action="/create_encounter" method="post">
-<!-- Form encounter end -->
 
-  <!-- Label and input for provider_id start -->
-  <!-- Input for "provider_id" start -->
   <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
-  <!-- Input for "provider_id" end -->
-  <!-- Label and input for provider_id end -->
 
-  <!-- Label and input for patient_id start -->
   <div class="form-group">
     <label for="patient_id">
       Patient
     </label>
 
-    <!-- Input for patient_id start -->
     <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :firstname, @encounter.patient_id), :class => "form-control") %>
-    <!-- Input for patient_id end -->
   </div>
-  <!-- Label and input for patient_id end -->
 
-  <!-- Label and input for chief_complaint start -->
   <div class="form-group">
     <label for="chief_complaint">
       Chief complaint
     </label>
 
-    <!-- Input for chief_complaint start -->
     <input type="text" id="chief_complaint" name="chief_complaint" class="form-control" value="<%= @encounter.chief_complaint %>">
-    <!-- Input for chief_complaint end -->
   </div>
-  <!-- Label and input for chief_complaint end -->
 
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <label for="notes">
       Notes
     </label>
 
-    <!-- Input for notes start -->
     <input type="text" id="notes" name="notes" class="form-control" value="<%= @encounter.notes %>">
-    <!-- Input for notes end -->
   </div>
-  <!-- Label and input for notes end -->
 
-  <!-- Label and input for location_id start -->
   <div class="form-group">
     <label for="location_id">
       Location
     </label>
 
-    <!-- Input for location_id start -->
     <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, @encounter.location_id), :class => "form-control") %>
-    <!-- Input for location_id end -->
   </div>
-  <!-- Label and input for location_id end -->
 
-  <!-- Label and input for approving_provider_id start -->
   <div class="form-group">
     <label for="approving_provider_id">
       Approving provider
     </label>
 
-    <!-- Input for approving_provider_id start -->
     <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @encounter.approving_provider_id), :class => "form-control") %>
-    <!-- Input for approving_provider_id end -->
   </div>
-  <!-- Label and input for approving_provider_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create encounter

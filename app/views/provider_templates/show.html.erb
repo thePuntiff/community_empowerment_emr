@@ -11,13 +11,11 @@
         </a>
       </div>
 
-      <!-- Edit link provider start -->
       <div class="col">
         <a href="/providers/<%= @provider.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit provider
         </a>
       </div>
-      <!-- Edit link provider end -->
 
     </div>
 
@@ -25,61 +23,48 @@
       <dt>
         Firstname
       </dt>
-      <!-- Display firstname start -->
       <dd>
         <%= @provider.firstname %>
       </dd>
-      <!-- Display firstname end -->
 
       <dt>
         Lastname
       </dt>
-      <!-- Display lastname start -->
       <dd>
         <%= @provider.lastname %>
       </dd>
-      <!-- Display lastname end -->
 
       <dt>
         Email
       </dt>
-      <!-- Display email start -->
       <dd>
         <%= @provider.email %>
       </dd>
-      <!-- Display email end -->
 
       <dt>
         Password
       </dt>
-      <!-- Display password start -->
       <dd>
         <%= @provider.password %>
       </dd>
-      <!-- Display password end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@provider.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@provider.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "provider_templates/provider_provider_credentials" %>
@@ -109,4 +94,3 @@
     <%= render partial: "provider_templates/provider_credentials" %>
   </div>
 </div>
-<!-- Show Page Customization end -->
