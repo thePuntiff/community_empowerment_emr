@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      CommunityEmpowermentEmr
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsible-nav-links">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/sexes" class="dropdown-item">
+              Sexes
+            </a>
+            <a href="/prescriptions" class="dropdown-item">
+              Prescriptions
+            </a>
+            <a href="/med_types" class="dropdown-item">
+              Med Types
+            </a>
+            <a href="/medications" class="dropdown-item">
+              Medications
+            </a>
+            <a href="/locations" class="dropdown-item">
+              Locations
+            </a>
+            <a href="/encounters" class="dropdown-item">
+              Encounters
+            </a>
+            <a href="/provider_credentials" class="dropdown-item">
+              Provider Credentials
+            </a>
+            <a href="/credentials" class="dropdown-item">
+              Credentials
+            </a>
+            <a href="/patients" class="dropdown-item">
+              Patients
+            </a>
+            <a href="/providers" class="dropdown-item">
+              Providers
+            </a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <% if current_provider.blank? %>
+          <li class="nav-item">
+            <a href="/providers/sign_in" class="nav-link">
+              Sign in
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/providers/sign_up" class="nav-link">
+              Sign up
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/providers/edit" class="nav-link">
+              Edit profile
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/providers/sign_out" data-method="delete" class="nav-link">
+              Sign out
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div> <!-- .navbar-collapse -->
+  </div> <!-- .container -->
+</nav>
