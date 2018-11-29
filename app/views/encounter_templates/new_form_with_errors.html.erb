@@ -1,0 +1,104 @@
+<!-- Validation failure messages -->
+<% if @encounter.present? %>
+  <% if @encounter.errors.any? %>
+    <% @encounter.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new encounter
+</h1>
+
+
+<hr>
+
+<!-- Form encounter start -->
+<form action="/create_encounter" method="post">
+<!-- Form encounter end -->
+
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <!-- Input for provider_id start -->
+    <input type="text" id="provider_id" name="provider_id" class="form-control" value="<%= @encounter.provider_id %>">
+    <!-- Input for provider_id end -->
+  </div>
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for patient_id start -->
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <!-- Input for patient_id start -->
+    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @encounter.patient_id %>">
+    <!-- Input for patient_id end -->
+  </div>
+  <!-- Label and input for patient_id end -->
+
+  <!-- Label and input for chief_complaint start -->
+  <div class="form-group">
+    <label for="chief_complaint">
+      Chief complaint
+    </label>
+
+    <!-- Input for chief_complaint start -->
+    <input type="text" id="chief_complaint" name="chief_complaint" class="form-control" value="<%= @encounter.chief_complaint %>">
+    <!-- Input for chief_complaint end -->
+  </div>
+  <!-- Label and input for chief_complaint end -->
+
+  <!-- Label and input for notes start -->
+  <div class="form-group">
+    <label for="notes">
+      Notes
+    </label>
+
+    <!-- Input for notes start -->
+    <input type="text" id="notes" name="notes" class="form-control" value="<%= @encounter.notes %>">
+    <!-- Input for notes end -->
+  </div>
+  <!-- Label and input for notes end -->
+
+  <!-- Label and input for location_id start -->
+  <div class="form-group">
+    <label for="location_id">
+      Location
+    </label>
+
+    <!-- Input for location_id start -->
+    <input type="text" id="location_id" name="location_id" class="form-control" value="<%= @encounter.location_id %>">
+    <!-- Input for location_id end -->
+  </div>
+  <!-- Label and input for location_id end -->
+
+  <!-- Label and input for approving_provider_id start -->
+  <div class="form-group">
+    <label for="approving_provider_id">
+      Approving provider
+    </label>
+
+    <!-- Input for approving_provider_id start -->
+    <input type="text" id="approving_provider_id" name="approving_provider_id" class="form-control" value="<%= @encounter.approving_provider_id %>">
+    <!-- Input for approving_provider_id end -->
+  </div>
+  <!-- Label and input for approving_provider_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create encounter
+  </button>
+</form>
+
+<hr>
+
+<a href="/encounters">
+  Go back
+</a>

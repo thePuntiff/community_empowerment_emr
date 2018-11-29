@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Encounter resource:
+
+  # CREATE
+  get("/encounters/new", { :controller => "encounters", :action => "new_form" })
+  post("/create_encounter", { :controller => "encounters", :action => "create_row" })
+
+  # READ
+  get("/encounters", { :controller => "encounters", :action => "index" })
+  get("/encounters/:id_to_display", { :controller => "encounters", :action => "show" })
+
+  # UPDATE
+  get("/encounters/:prefill_with_id/edit", { :controller => "encounters", :action => "edit_form" })
+  post("/update_encounter/:id_to_modify", { :controller => "encounters", :action => "update_row" })
+
+  # DELETE
+  get("/delete_encounter/:id_to_remove", { :controller => "encounters", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Provider credential resource:
 
   # CREATE
