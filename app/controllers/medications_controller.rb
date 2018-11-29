@@ -53,6 +53,14 @@ class MedicationsController < ApplicationController
     end
   end
 
+  def destroy_row_from_med_type
+    @medication = Medication.find(params.fetch("id_to_remove"))
+
+    @medication.destroy
+
+    redirect_to("/med_types/#{@medication.med_type_id}", notice: "Medication deleted successfully.")
+  end
+
   def destroy_row
     @medication = Medication.find(params.fetch("id_to_remove"))
 

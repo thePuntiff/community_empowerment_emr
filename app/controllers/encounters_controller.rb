@@ -61,6 +61,38 @@ class EncountersController < ApplicationController
     end
   end
 
+  def destroy_row_from_provider
+    @encounter = Encounter.find(params.fetch("id_to_remove"))
+
+    @encounter.destroy
+
+    redirect_to("/providers/#{@encounter.provider_id}", notice: "Encounter deleted successfully.")
+  end
+
+  def destroy_row_from_approving_provider
+    @encounter = Encounter.find(params.fetch("id_to_remove"))
+
+    @encounter.destroy
+
+    redirect_to("/providers/#{@encounter.approving_provider_id}", notice: "Encounter deleted successfully.")
+  end
+
+  def destroy_row_from_patient
+    @encounter = Encounter.find(params.fetch("id_to_remove"))
+
+    @encounter.destroy
+
+    redirect_to("/patients/#{@encounter.patient_id}", notice: "Encounter deleted successfully.")
+  end
+
+  def destroy_row_from_location
+    @encounter = Encounter.find(params.fetch("id_to_remove"))
+
+    @encounter.destroy
+
+    redirect_to("/locations/#{@encounter.location_id}", notice: "Encounter deleted successfully.")
+  end
+
   def destroy_row
     @encounter = Encounter.find(params.fetch("id_to_remove"))
 

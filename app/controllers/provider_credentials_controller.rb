@@ -53,6 +53,22 @@ class ProviderCredentialsController < ApplicationController
     end
   end
 
+  def destroy_row_from_provider
+    @provider_credential = ProviderCredential.find(params.fetch("id_to_remove"))
+
+    @provider_credential.destroy
+
+    redirect_to("/providers/#{@provider_credential.provider_id}", notice: "ProviderCredential deleted successfully.")
+  end
+
+  def destroy_row_from_credential
+    @provider_credential = ProviderCredential.find(params.fetch("id_to_remove"))
+
+    @provider_credential.destroy
+
+    redirect_to("/credentials/#{@provider_credential.credential_id}", notice: "ProviderCredential deleted successfully.")
+  end
+
   def destroy_row
     @provider_credential = ProviderCredential.find(params.fetch("id_to_remove"))
 

@@ -37,6 +37,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_prescription/:id_to_remove", { :controller => "prescriptions", :action => "destroy_row" })
+  get("/delete_prescription_from_medication/:id_to_remove", { :controller => "prescriptions", :action => "destroy_row_from_medication" })
+  get("/delete_prescription_from_encounter/:id_to_remove", { :controller => "prescriptions", :action => "destroy_row_from_encounter" })
+  get("/delete_prescription_from_patient/:id_to_remove", { :controller => "prescriptions", :action => "destroy_row_from_patient" })
+  get("/delete_prescription_from_provider/:id_to_remove", { :controller => "prescriptions", :action => "destroy_row_from_provider" })
 
   #------------------------------
 
@@ -75,6 +79,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_medication/:id_to_remove", { :controller => "medications", :action => "destroy_row" })
+  get("/delete_medication_from_med_type/:id_to_remove", { :controller => "medications", :action => "destroy_row_from_med_type" })
 
   #------------------------------
 
@@ -113,6 +118,10 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_encounter/:id_to_remove", { :controller => "encounters", :action => "destroy_row" })
+  get("/delete_encounter_from_location/:id_to_remove", { :controller => "encounters", :action => "destroy_row_from_location" })
+  get("/delete_encounter_from_patient/:id_to_remove", { :controller => "encounters", :action => "destroy_row_from_patient" })
+  get("/delete_encounter_from_approving_provider/:id_to_remove", { :controller => "encounters", :action => "destroy_row_from_approving_provider" })
+  get("/delete_encounter_from_provider/:id_to_remove", { :controller => "encounters", :action => "destroy_row_from_provider" })
 
   #------------------------------
 
@@ -132,6 +141,8 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_provider_credential/:id_to_remove", { :controller => "provider_credentials", :action => "destroy_row" })
+  get("/delete_provider_credential_from_credential/:id_to_remove", { :controller => "provider_credentials", :action => "destroy_row_from_credential" })
+  get("/delete_provider_credential_from_provider/:id_to_remove", { :controller => "provider_credentials", :action => "destroy_row_from_provider" })
 
   #------------------------------
 
@@ -170,6 +181,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_patient/:id_to_remove", { :controller => "patients", :action => "destroy_row" })
+  get("/delete_patient_from_sex/:id_to_remove", { :controller => "patients", :action => "destroy_row_from_sex" })
 
   #------------------------------
 

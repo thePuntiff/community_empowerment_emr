@@ -59,6 +59,14 @@ class PatientsController < ApplicationController
     end
   end
 
+  def destroy_row_from_sex
+    @patient = Patient.find(params.fetch("id_to_remove"))
+
+    @patient.destroy
+
+    redirect_to("/sexes/#{@patient.sex_id}", notice: "Patient deleted successfully.")
+  end
+
   def destroy_row
     @patient = Patient.find(params.fetch("id_to_remove"))
 

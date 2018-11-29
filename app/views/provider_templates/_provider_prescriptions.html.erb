@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Prescriptions
+
+    <a data-toggle="collapse" href="#provider_prescriptions_new_form">
+      Add prescription
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @provider.prescriptions.each do |prescription| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/prescriptions/<%= prescription.id %>">
+          <%= prescription.patient_id %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
