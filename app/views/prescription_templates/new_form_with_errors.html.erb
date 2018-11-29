@@ -33,15 +33,9 @@
   <!-- Label and input for patient_id end -->
 
   <!-- Label and input for provider_id start -->
-  <div class="form-group">
-    <label for="provider_id">
-      Provider
-    </label>
-
-    <!-- Input for provider_id start -->
-    <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @prescription.provider_id), :class => "form-control") %>
-    <!-- Input for provider_id end -->
-  </div>
+  <!-- Input for "provider_id" start -->
+  <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
+  <!-- Input for "provider_id" end -->
   <!-- Label and input for provider_id end -->
 
   <!-- Label and input for encounter_id start -->

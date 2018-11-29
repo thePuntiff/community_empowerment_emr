@@ -95,7 +95,7 @@ class PrescriptionsController < ApplicationController
     @prescription = Prescription.find(params.fetch("id_to_modify"))
 
     @prescription.patient_id = params.fetch("patient_id")
-    @prescription.provider_id = params.fetch("provider_id")
+    
     @prescription.encounter_id = params.fetch("encounter_id")
     @prescription.medication_id = params.fetch("medication_id")
 
