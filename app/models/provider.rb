@@ -1,6 +1,8 @@
 class Provider < ApplicationRecord
   # Direct associations
 
+  has_many   :prescriptions
+
   has_many   :encounters
 
   has_many   :provider_credentials,
