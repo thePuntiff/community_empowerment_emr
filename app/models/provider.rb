@@ -1,6 +1,10 @@
 class Provider < ApplicationRecord
   # Direct associations
 
+  has_many   :approved_encounters,
+             :class_name => "Encounter",
+             :foreign_key => "approving_provider_id"
+
   has_many   :prescriptions
 
   has_many   :encounters

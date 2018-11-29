@@ -4,6 +4,8 @@ RSpec.describe Provider, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:approved_encounters) }
+
     it { should have_many(:prescriptions) }
 
     it { should have_many(:encounters) }
