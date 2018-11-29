@@ -1,0 +1,69 @@
+<h1>
+  Add a new prescription
+</h1>
+
+
+<hr>
+
+<!-- Form prescription start -->
+<form action="/create_prescription" method="post">
+<!-- Form prescription end -->
+
+  <!-- Label and input for patient_id start -->
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <!-- Input for patient_id start -->
+    <input type="text" id="patient_id" name="patient_id" class="form-control">
+    <!-- Input for patient_id end -->
+  </div>
+  <!-- Label and input for patient_id end -->
+
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <!-- Input for provider_id start -->
+    <input type="text" id="provider_id" name="provider_id" class="form-control">
+    <!-- Input for provider_id end -->
+  </div>
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for encounter_id start -->
+  <div class="form-group">
+    <label for="encounter_id">
+      Encounter
+    </label>
+
+    <!-- Input for encounter_id start -->
+    <input type="text" id="encounter_id" name="encounter_id" class="form-control">
+    <!-- Input for encounter_id end -->
+  </div>
+  <!-- Label and input for encounter_id end -->
+
+  <!-- Label and input for medication_id start -->
+  <div class="form-group">
+    <label for="medication_id">
+      Medication
+    </label>
+
+    <!-- Input for medication_id start -->
+    <input type="text" id="medication_id" name="medication_id" class="form-control">
+    <!-- Input for medication_id end -->
+  </div>
+  <!-- Label and input for medication_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create prescription
+  </button>
+</form>
+
+<hr>
+
+<a href="/prescriptions">
+  Go back
+</a>

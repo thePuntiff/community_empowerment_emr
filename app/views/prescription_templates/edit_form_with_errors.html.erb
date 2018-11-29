@@ -1,0 +1,77 @@
+<!-- Validation failure messages -->
+<% if @prescription.errors.any? %>
+  <% @prescription.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit prescription #<%= @prescription.id %>
+</h1>
+
+<hr>
+
+<!-- Form prescription start -->
+<form action="/update_prescription/<%= @prescription.id %>" method="post">
+<!-- Form prescription end -->
+
+  <!-- Label and input for patient_id start -->
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <!-- Input for patient_id start -->
+    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @prescription.patient_id %>">
+    <!-- Input for patient_id end -->
+  </div>
+  <!-- Label and input for patient_id end -->
+
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <!-- Input for provider_id start -->
+    <input type="text" id="provider_id" name="provider_id" class="form-control" value="<%= @prescription.provider_id %>">
+    <!-- Input for provider_id end -->
+  </div>
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for encounter_id start -->
+  <div class="form-group">
+    <label for="encounter_id">
+      Encounter
+    </label>
+
+    <!-- Input for encounter_id start -->
+    <input type="text" id="encounter_id" name="encounter_id" class="form-control" value="<%= @prescription.encounter_id %>">
+    <!-- Input for encounter_id end -->
+  </div>
+  <!-- Label and input for encounter_id end -->
+
+  <!-- Label and input for medication_id start -->
+  <div class="form-group">
+    <label for="medication_id">
+      Medication
+    </label>
+
+    <!-- Input for medication_id start -->
+    <input type="text" id="medication_id" name="medication_id" class="form-control" value="<%= @prescription.medication_id %>">
+    <!-- Input for medication_id end -->
+  </div>
+  <!-- Label and input for medication_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update prescription
+  </button>
+</form>
+
+<hr>
+
+<a href="/prescriptions">
+  Go back
+</a>
