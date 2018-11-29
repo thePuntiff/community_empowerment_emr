@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Provider credential resource:
+
+  # CREATE
+  get("/provider_credentials/new", { :controller => "provider_credentials", :action => "new_form" })
+  post("/create_provider_credential", { :controller => "provider_credentials", :action => "create_row" })
+
+  # READ
+  get("/provider_credentials", { :controller => "provider_credentials", :action => "index" })
+  get("/provider_credentials/:id_to_display", { :controller => "provider_credentials", :action => "show" })
+
+  # UPDATE
+  get("/provider_credentials/:prefill_with_id/edit", { :controller => "provider_credentials", :action => "edit_form" })
+  post("/update_provider_credential/:id_to_modify", { :controller => "provider_credentials", :action => "update_row" })
+
+  # DELETE
+  get("/delete_provider_credential/:id_to_remove", { :controller => "provider_credentials", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Credential resource:
 
   # CREATE

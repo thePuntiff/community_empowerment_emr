@@ -1,0 +1,45 @@
+<h1>
+  Add a new provider credential
+</h1>
+
+
+<hr>
+
+<!-- Form provider_credential start -->
+<form action="/create_provider_credential" method="post">
+<!-- Form provider_credential end -->
+
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <!-- Input for provider_id start -->
+    <input type="text" id="provider_id" name="provider_id" class="form-control">
+    <!-- Input for provider_id end -->
+  </div>
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for credential_id start -->
+  <div class="form-group">
+    <label for="credential_id">
+      Credential
+    </label>
+
+    <!-- Input for credential_id start -->
+    <input type="text" id="credential_id" name="credential_id" class="form-control">
+    <!-- Input for credential_id end -->
+  </div>
+  <!-- Label and input for credential_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create provider credential
+  </button>
+</form>
+
+<hr>
+
+<a href="/provider_credentials">
+  Go back
+</a>

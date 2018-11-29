@@ -1,0 +1,73 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Provider credential #<%= @provider_credential.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/provider_credentials" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link provider_credential start -->
+      <div class="col">
+        <a href="/provider_credentials/<%= @provider_credential.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit provider credential
+        </a>
+      </div>
+      <!-- Edit link provider_credential end -->
+
+      <!-- Delete link provider_credential start -->
+      <div class="col">
+        <a href="/delete_provider_credential/<%= @provider_credential.id %>" class="btn btn-block btn-outline-secondary">
+          Delete provider credential
+        </a>
+      </div>
+      <!-- Delete link provider_credential end -->
+    </div>
+
+    <dl>
+      <dt>
+        Provider
+      </dt>
+      <!-- Display provider_id start -->
+      <dd>
+        <%= @provider_credential.provider_id %>
+      </dd>
+      <!-- Display provider_id end -->
+
+      <dt>
+        Credential
+      </dt>
+      <!-- Display credential_id start -->
+      <dd>
+        <%= @provider_credential.credential_id %>
+      </dd>
+      <!-- Display credential_id end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@provider_credential.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@provider_credential.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
