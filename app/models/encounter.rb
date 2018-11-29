@@ -1,6 +1,8 @@
 class Encounter < ApplicationRecord
   # Direct associations
 
+  belongs_to :location
+
   has_many   :prescriptions,
              :dependent => :destroy
 
