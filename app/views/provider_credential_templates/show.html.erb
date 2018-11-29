@@ -13,17 +13,21 @@
 
       <!-- Edit link provider_credential start -->
       <div class="col">
-        <a href="/provider_credentials/<%= @provider_credential.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit provider credential
-        </a>
+        <% if current_provider == @provider_credential.provider %>
+          <a href="/provider_credentials/<%= @provider_credential.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit provider_credential
+          </a>
+        <% end %>
       </div>
       <!-- Edit link provider_credential end -->
 
       <!-- Delete link provider_credential start -->
       <div class="col">
-        <a href="/delete_provider_credential/<%= @provider_credential.id %>" class="btn btn-block btn-outline-secondary">
-          Delete provider credential
-        </a>
+        <% if current_provider == @provider_credential.provider %>
+          <a href="/delete_provider_credential/<%= @provider_credential.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete provider_credential
+          </a>
+        <% end %>
       </div>
       <!-- Delete link provider_credential end -->
     </div>

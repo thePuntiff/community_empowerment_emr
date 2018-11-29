@@ -1,4 +1,14 @@
 class ProviderCredentialsController < ApplicationController
+  before_action :current_provider_must_be_provider_credential_provider, :only => [:edit_form, :update_row, :destroy_row]
+
+  def current_provider_must_be_provider_credential_provider
+    provider_credential = ProviderCredential.find(params["id_to_display"] || params["prefill_with_id"] || params["id_to_modify"] || params["id_to_remove"])
+
+    unless current_provider == provider_credential.provider
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @provider_credentials = ProviderCredential.all
 
