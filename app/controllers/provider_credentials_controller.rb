@@ -56,7 +56,7 @@ class ProviderCredentialsController < ApplicationController
   def update_row
     @provider_credential = ProviderCredential.find(params.fetch("id_to_modify"))
 
-    @provider_credential.provider_id = params.fetch("provider_id")
+    
     @provider_credential.credential_id = params.fetch("credential_id")
 
     if @provider_credential.valid?
