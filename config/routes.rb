@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Sex resource:
+
+  # CREATE
+  get("/sexes/new", { :controller => "sexes", :action => "new_form" })
+  post("/create_sex", { :controller => "sexes", :action => "create_row" })
+
+  # READ
+  get("/sexes", { :controller => "sexes", :action => "index" })
+  get("/sexes/:id_to_display", { :controller => "sexes", :action => "show" })
+
+  # UPDATE
+  get("/sexes/:prefill_with_id/edit", { :controller => "sexes", :action => "edit_form" })
+  post("/update_sex/:id_to_modify", { :controller => "sexes", :action => "update_row" })
+
+  # DELETE
+  get("/delete_sex/:id_to_remove", { :controller => "sexes", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Prescription resource:
 
   # CREATE
