@@ -40,7 +40,7 @@
     </label>
 
     <!-- Input for encounter_id start -->
-    <input type="text" id="encounter_id" name="encounter_id" class="form-control">
+    <%= select_tag(:encounter_id, options_from_collection_for_select(Encounter.all, :id, :provider_id, @prescription.encounter_id), :class => "form-control") %>
     <!-- Input for encounter_id end -->
   </div>
   <!-- Label and input for encounter_id end -->
