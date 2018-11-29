@@ -4,6 +4,8 @@ RSpec.describe Medication, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:med_type) }
+
     it { should have_many(:prescriptions) }
 
     end
