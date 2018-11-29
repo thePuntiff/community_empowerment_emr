@@ -1,6 +1,7 @@
 class EncountersController < ApplicationController
   def index
-    @encounters = Encounter.page(params[:page]).per(10)
+    @q = Encounter.ransack(params[:q])
+    @encounters = @q.result(:distinct => true).includes(:provider, :approving_provider, :patient, :prescriptions, :location).page(params[:page]).per(10)
 
     render("encounter_templates/index.html.erb")
   end

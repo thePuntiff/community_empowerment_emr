@@ -10,7 +10,8 @@ class ProviderCredentialsController < ApplicationController
   end
 
   def index
-    @provider_credentials = ProviderCredential.page(params[:page]).per(10)
+    @q = ProviderCredential.ransack(params[:q])
+    @provider_credentials = @q.result(:distinct => true).includes(:provider, :credential).page(params[:page]).per(10)
 
     render("provider_credential_templates/index.html.erb")
   end

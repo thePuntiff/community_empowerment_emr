@@ -1,6 +1,7 @@
 class MedTypesController < ApplicationController
   def index
-    @med_types = MedType.page(params[:page]).per(10)
+    @q = MedType.ransack(params[:q])
+    @med_types = @q.result(:distinct => true).includes(:medications, :prescriptions).page(params[:page]).per(10)
 
     render("med_type_templates/index.html.erb")
   end
