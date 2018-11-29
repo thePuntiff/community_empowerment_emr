@@ -34,6 +34,57 @@ class PrescriptionsController < ApplicationController
     end
   end
 
+  def create_row_from_patient
+    @prescription = Prescription.new
+
+    @prescription.patient_id = params.fetch("patient_id")
+    @prescription.provider_id = params.fetch("provider_id")
+    @prescription.encounter_id = params.fetch("encounter_id")
+    @prescription.medication_id = params.fetch("medication_id")
+
+    if @prescription.valid?
+      @prescription.save
+
+      redirect_to("/patients/#{@prescription.patient_id}", notice: "Prescription created successfully.")
+    else
+      render("prescription_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_encounter
+    @prescription = Prescription.new
+
+    @prescription.patient_id = params.fetch("patient_id")
+    @prescription.provider_id = params.fetch("provider_id")
+    @prescription.encounter_id = params.fetch("encounter_id")
+    @prescription.medication_id = params.fetch("medication_id")
+
+    if @prescription.valid?
+      @prescription.save
+
+      redirect_to("/encounters/#{@prescription.encounter_id}", notice: "Prescription created successfully.")
+    else
+      render("prescription_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_medication
+    @prescription = Prescription.new
+
+    @prescription.patient_id = params.fetch("patient_id")
+    @prescription.provider_id = params.fetch("provider_id")
+    @prescription.encounter_id = params.fetch("encounter_id")
+    @prescription.medication_id = params.fetch("medication_id")
+
+    if @prescription.valid?
+      @prescription.save
+
+      redirect_to("/medications/#{@prescription.medication_id}", notice: "Prescription created successfully.")
+    else
+      render("prescription_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @prescription = Prescription.find(params.fetch("prefill_with_id"))
 

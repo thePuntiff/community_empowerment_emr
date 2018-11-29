@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   # CREATE
   get("/prescriptions/new", { :controller => "prescriptions", :action => "new_form" })
   post("/create_prescription", { :controller => "prescriptions", :action => "create_row" })
+  post("/create_prescription_from_medication", { :controller => "prescriptions", :action => "create_row_from_medication" })
+  post("/create_prescription_from_encounter", { :controller => "prescriptions", :action => "create_row_from_encounter" })
+  post("/create_prescription_from_patient", { :controller => "prescriptions", :action => "create_row_from_patient" })
 
   # READ
   get("/prescriptions", { :controller => "prescriptions", :action => "index" })
@@ -68,6 +71,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/medications/new", { :controller => "medications", :action => "new_form" })
   post("/create_medication", { :controller => "medications", :action => "create_row" })
+  post("/create_medication_from_med_type", { :controller => "medications", :action => "create_row_from_med_type" })
 
   # READ
   get("/medications", { :controller => "medications", :action => "index" })
@@ -107,6 +111,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/encounters/new", { :controller => "encounters", :action => "new_form" })
   post("/create_encounter", { :controller => "encounters", :action => "create_row" })
+  post("/create_encounter_from_location", { :controller => "encounters", :action => "create_row_from_location" })
+  post("/create_encounter_from_patient", { :controller => "encounters", :action => "create_row_from_patient" })
 
   # READ
   get("/encounters", { :controller => "encounters", :action => "index" })
@@ -130,6 +136,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/provider_credentials/new", { :controller => "provider_credentials", :action => "new_form" })
   post("/create_provider_credential", { :controller => "provider_credentials", :action => "create_row" })
+  post("/create_provider_credential_from_credential", { :controller => "provider_credentials", :action => "create_row_from_credential" })
 
   # READ
   get("/provider_credentials", { :controller => "provider_credentials", :action => "index" })
@@ -170,6 +177,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/patients/new", { :controller => "patients", :action => "new_form" })
   post("/create_patient", { :controller => "patients", :action => "create_row" })
+  post("/create_patient_from_sex", { :controller => "patients", :action => "create_row_from_sex" })
 
   # READ
   get("/patients", { :controller => "patients", :action => "index" })

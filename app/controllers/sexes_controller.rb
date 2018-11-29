@@ -6,6 +6,7 @@ class SexesController < ApplicationController
   end
 
   def show
+    @patient = Patient.new
     @sex = Sex.find(params.fetch("id_to_display"))
 
     render("sex_templates/show.html.erb")

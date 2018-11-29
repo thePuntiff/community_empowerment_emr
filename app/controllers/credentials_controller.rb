@@ -6,6 +6,7 @@ class CredentialsController < ApplicationController
   end
 
   def show
+    @provider_credential = ProviderCredential.new
     @credential = Credential.find(params.fetch("id_to_display"))
 
     render("credential_templates/show.html.erb")

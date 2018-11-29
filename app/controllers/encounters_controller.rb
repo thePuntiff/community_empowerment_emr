@@ -6,6 +6,7 @@ class EncountersController < ApplicationController
   end
 
   def show
+    @prescription = Prescription.new
     @encounter = Encounter.find(params.fetch("id_to_display"))
 
     render("encounter_templates/show.html.erb")
@@ -31,6 +32,44 @@ class EncountersController < ApplicationController
       @encounter.save
 
       redirect_back(:fallback_location => "/encounters", :notice => "Encounter created successfully.")
+    else
+      render("encounter_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_patient
+    @encounter = Encounter.new
+
+    @encounter.provider_id = params.fetch("provider_id")
+    @encounter.patient_id = params.fetch("patient_id")
+    @encounter.chief_complaint = params.fetch("chief_complaint")
+    @encounter.notes = params.fetch("notes")
+    @encounter.location_id = params.fetch("location_id")
+    @encounter.approving_provider_id = params.fetch("approving_provider_id")
+
+    if @encounter.valid?
+      @encounter.save
+
+      redirect_to("/patients/#{@encounter.patient_id}", notice: "Encounter created successfully.")
+    else
+      render("encounter_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_location
+    @encounter = Encounter.new
+
+    @encounter.provider_id = params.fetch("provider_id")
+    @encounter.patient_id = params.fetch("patient_id")
+    @encounter.chief_complaint = params.fetch("chief_complaint")
+    @encounter.notes = params.fetch("notes")
+    @encounter.location_id = params.fetch("location_id")
+    @encounter.approving_provider_id = params.fetch("approving_provider_id")
+
+    if @encounter.valid?
+      @encounter.save
+
+      redirect_to("/locations/#{@encounter.location_id}", notice: "Encounter created successfully.")
     else
       render("encounter_templates/new_form_with_errors.html.erb")
     end

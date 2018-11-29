@@ -32,6 +32,21 @@ class ProviderCredentialsController < ApplicationController
     end
   end
 
+  def create_row_from_credential
+    @provider_credential = ProviderCredential.new
+
+    @provider_credential.provider_id = params.fetch("provider_id")
+    @provider_credential.credential_id = params.fetch("credential_id")
+
+    if @provider_credential.valid?
+      @provider_credential.save
+
+      redirect_to("/credentials/#{@provider_credential.credential_id}", notice: "ProviderCredential created successfully.")
+    else
+      render("provider_credential_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @provider_credential = ProviderCredential.find(params.fetch("prefill_with_id"))
 

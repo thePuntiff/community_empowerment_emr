@@ -1,0 +1,25 @@
+<!-- Form medication start -->
+<form action="/create_medication_from_med_type" method="post">
+<!-- Form medication end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @medication.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for med_type_id start -->
+  <!-- Input for med_type_id start -->
+  <input type="hidden" name="med_type_id" value="<%= @med_type.id %>">
+  <!-- Input for med_type_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create medication
+  </button>
+</form>

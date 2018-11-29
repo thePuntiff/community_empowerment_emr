@@ -6,6 +6,8 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @prescription = Prescription.new
+    @encounter = Encounter.new
     @patient = Patient.find(params.fetch("id_to_display"))
 
     render("patient_templates/show.html.erb")
@@ -30,6 +32,24 @@ class PatientsController < ApplicationController
       @patient.save
 
       redirect_back(:fallback_location => "/patients", :notice => "Patient created successfully.")
+    else
+      render("patient_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_sex
+    @patient = Patient.new
+
+    @patient.firstname = params.fetch("firstname")
+    @patient.lastname = params.fetch("lastname")
+    @patient.sex_id = params.fetch("sex_id")
+    @patient.dob = params.fetch("dob")
+    @patient.phone_num = params.fetch("phone_num")
+
+    if @patient.valid?
+      @patient.save
+
+      redirect_to("/sexes/#{@patient.sex_id}", notice: "Patient created successfully.")
     else
       render("patient_templates/new_form_with_errors.html.erb")
     end

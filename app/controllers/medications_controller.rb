@@ -6,6 +6,7 @@ class MedicationsController < ApplicationController
   end
 
   def show
+    @prescription = Prescription.new
     @medication = Medication.find(params.fetch("id_to_display"))
 
     render("medication_templates/show.html.erb")
@@ -27,6 +28,21 @@ class MedicationsController < ApplicationController
       @medication.save
 
       redirect_back(:fallback_location => "/medications", :notice => "Medication created successfully.")
+    else
+      render("medication_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_med_type
+    @medication = Medication.new
+
+    @medication.name = params.fetch("name")
+    @medication.med_type_id = params.fetch("med_type_id")
+
+    if @medication.valid?
+      @medication.save
+
+      redirect_to("/med_types/#{@medication.med_type_id}", notice: "Medication created successfully.")
     else
       render("medication_templates/new_form_with_errors.html.erb")
     end

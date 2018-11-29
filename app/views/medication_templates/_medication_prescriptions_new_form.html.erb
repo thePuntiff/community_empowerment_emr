@@ -1,0 +1,49 @@
+<!-- Form prescription start -->
+<form action="/create_prescription_from_medication" method="post">
+<!-- Form prescription end -->
+
+  <!-- Label and input for patient_id start -->
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <!-- Input for patient_id start -->
+    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @prescription.patient_id %>">
+    <!-- Input for patient_id end -->
+  </div>
+  <!-- Label and input for patient_id end -->
+
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <label for="provider_id">
+      Provider
+    </label>
+
+    <!-- Input for provider_id start -->
+    <input type="text" id="provider_id" name="provider_id" class="form-control" value="<%= @prescription.provider_id %>">
+    <!-- Input for provider_id end -->
+  </div>
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for encounter_id start -->
+  <div class="form-group">
+    <label for="encounter_id">
+      Encounter
+    </label>
+
+    <!-- Input for encounter_id start -->
+    <input type="text" id="encounter_id" name="encounter_id" class="form-control" value="<%= @prescription.encounter_id %>">
+    <!-- Input for encounter_id end -->
+  </div>
+  <!-- Label and input for encounter_id end -->
+
+  <!-- Label and input for medication_id start -->
+  <!-- Input for medication_id start -->
+  <input type="hidden" name="medication_id" value="<%= @medication.id %>">
+  <!-- Input for medication_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create prescription
+  </button>
+</form>

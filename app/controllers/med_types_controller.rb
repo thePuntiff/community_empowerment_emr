@@ -6,6 +6,7 @@ class MedTypesController < ApplicationController
   end
 
   def show
+    @medication = Medication.new
     @med_type = MedType.find(params.fetch("id_to_display"))
 
     render("med_type_templates/show.html.erb")
