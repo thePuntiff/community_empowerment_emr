@@ -1,4 +1,6 @@
 ActiveAdmin.register Encounter do
+
+ permit_params :provider_id, :patient_id, :chief_complaint, :notes, :location_id, :approving_provider_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
