@@ -60,7 +60,7 @@
     </label>
 
     <!-- Input for medication_id start -->
-    <input type="text" id="medication_id" name="medication_id" class="form-control" value="<%= @prescription.medication_id %>">
+    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name, @prescription.medication_id), :class => "form-control") %>
     <!-- Input for medication_id end -->
   </div>
   <!-- Label and input for medication_id end -->
