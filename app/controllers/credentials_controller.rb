@@ -1,6 +1,6 @@
 class CredentialsController < ApplicationController
   def index
-    @credentials = Credential.all
+    @credentials = Credential.page(params[:page]).per(10)
 
     render("credential_templates/index.html.erb")
   end

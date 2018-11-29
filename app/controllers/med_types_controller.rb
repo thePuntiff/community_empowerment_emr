@@ -1,6 +1,6 @@
 class MedTypesController < ApplicationController
   def index
-    @med_types = MedType.all
+    @med_types = MedType.page(params[:page]).per(10)
 
     render("med_type_templates/index.html.erb")
   end

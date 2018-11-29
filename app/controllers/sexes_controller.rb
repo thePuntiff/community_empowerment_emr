@@ -1,6 +1,6 @@
 class SexesController < ApplicationController
   def index
-    @sexes = Sex.all
+    @sexes = Sex.page(params[:page]).per(10)
 
     render("sex_templates/index.html.erb")
   end

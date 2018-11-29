@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   def index
-    @providers = Provider.all
+    @providers = Provider.page(params[:page]).per(10)
 
     render("provider_templates/index.html.erb")
   end

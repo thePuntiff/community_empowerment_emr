@@ -10,7 +10,7 @@ class ProviderCredentialsController < ApplicationController
   end
 
   def index
-    @provider_credentials = ProviderCredential.all
+    @provider_credentials = ProviderCredential.page(params[:page]).per(10)
 
     render("provider_credential_templates/index.html.erb")
   end

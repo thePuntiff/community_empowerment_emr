@@ -1,6 +1,6 @@
 class EncountersController < ApplicationController
   def index
-    @encounters = Encounter.all
+    @encounters = Encounter.page(params[:page]).per(10)
 
     render("encounter_templates/index.html.erb")
   end

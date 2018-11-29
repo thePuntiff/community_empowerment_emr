@@ -1,6 +1,6 @@
 class MedicationsController < ApplicationController
   def index
-    @medications = Medication.all
+    @medications = Medication.page(params[:page]).per(10)
 
     render("medication_templates/index.html.erb")
   end
