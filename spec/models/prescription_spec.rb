@@ -4,6 +4,8 @@ RSpec.describe Prescription, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:medication) }
+
     it { should belong_to(:encounter) }
 
     it { should belong_to(:patient) }
