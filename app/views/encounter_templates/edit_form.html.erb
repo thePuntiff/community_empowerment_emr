@@ -75,7 +75,7 @@
     </label>
 
     <!-- Input for approving_provider_id start -->
-    <input type="text" id="approving_provider_id" name="approving_provider_id" class="form-control" value="<%= @encounter.approving_provider_id %>">
+    <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @encounter.approving_provider_id), :class => "form-control") %>
     <!-- Input for approving_provider_id end -->
   </div>
   <!-- Label and input for approving_provider_id end -->
