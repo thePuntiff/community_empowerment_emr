@@ -33,7 +33,7 @@
       Approving provider
     </label>
 
-    <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @encounter.approving_provider_id), :class => "form-control") %>
+    <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :class => "form-control") %>
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

@@ -1,17 +1,13 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Approved Encounters
-
-    <a data-toggle="collapse" href="#provider_approved_encounters_new_form">
-      Add encounter
-    </a>
+    Approved Encounters (<%=@provider.approved_encounters.count%> total)
   </div>
 
   <ul class="list-group list-group-flush">
     <% @provider.approved_encounters.each do |encounter| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <a href="/encounters/<%= encounter.id %>">
-          <%= encounter.provider_id %>
+          <%= encounter.provider.firstname %> <%= encounter.provider.lastname %> seeing <%= encounter.patient.firstname %> <%= encounter.patient.lastname %> on <%= encounter.created_at.to_date %> @ <%= encounter.location.name %>
         </a>
 
       </li>

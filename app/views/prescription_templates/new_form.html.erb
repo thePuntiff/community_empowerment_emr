@@ -12,7 +12,7 @@
       Patient
     </label>
 
-    <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :firstname, @prescription.patient_id), :class => "form-control") %>
+    <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :fullname, @prescription.patient_id), :class => "form-control") %>
   </div>
 
   <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
@@ -22,7 +22,7 @@
       Encounter
     </label>
 
-    <%= select_tag(:encounter_id, options_from_collection_for_select(Encounter.all, :id, :provider_id, @prescription.encounter_id), :class => "form-control") %>
+    <%= select_tag(:encounter_id, options_from_collection_for_select(Encounter.all, :id, :name, @prescription.encounter_id), :class => "form-control") %>
   </div>
 
   <div class="form-group">
@@ -30,7 +30,15 @@
       Medication
     </label>
 
-    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name, @prescription.medication_id), :class => "form-control") %>
+    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage, @prescription.medication_id), :class => "form-control") %>
+  </div>
+  
+  <div class="form-group">
+    <label for="instructions">
+      Instructions
+    </label>
+
+    <textarea class="form-control" id="instructions" name="instructions" rows="4"></textarea>
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

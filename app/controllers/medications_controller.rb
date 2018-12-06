@@ -24,6 +24,7 @@ class MedicationsController < ApplicationController
 
     @medication.name = params.fetch("name")
     @medication.med_type_id = params.fetch("med_type_id")
+    @medication.dosage = params.fetch("dosage")
 
     if @medication.valid?
       @medication.save
@@ -39,6 +40,7 @@ class MedicationsController < ApplicationController
 
     @medication.name = params.fetch("name")
     @medication.med_type_id = params.fetch("med_type_id")
+    @medication.dosage = params.fetch("dosage")
 
     if @medication.valid?
       @medication.save
@@ -60,6 +62,7 @@ class MedicationsController < ApplicationController
 
     @medication.name = params.fetch("name")
     @medication.med_type_id = params.fetch("med_type_id")
+    @medication.dosage = params.fetch("dosage")
 
     if @medication.valid?
       @medication.save

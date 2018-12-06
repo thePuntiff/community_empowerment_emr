@@ -1,23 +1,27 @@
 <form action="/create_prescription_from_encounter" method="post">
 
-  <div class="form-group">
-    <label for="patient_id">
-      Patient
-    </label>
-
-    <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :firstname, @prescription.patient_id), :class => "form-control") %>
-  </div>
-
+  <input type="hidden" name="patient_id" value="<%= @encounter.patient_id %>">
+  
   <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
 
   <input type="hidden" name="encounter_id" value="<%= @encounter.id %>">
 
+
+  <b>Add a new prescription for this visit</b>d
   <div class="form-group">
     <label for="medication_id">
       Medication
     </label>
 
-    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name, @prescription.medication_id), :class => "form-control") %>
+    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage, @prescription.medication_id), :class => "form-control") %>
+  </div>
+  
+  <div class="form-group">
+    <label for="instructions">
+      Instructions
+    </label>
+
+    <input type="text" id="instructions" name="instructions" class="form-control">
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

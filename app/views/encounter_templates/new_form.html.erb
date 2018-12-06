@@ -1,5 +1,5 @@
 <h1>
-  Add a new encounter
+  Create a new encounter
 </h1>
 
 
@@ -7,47 +7,103 @@
 
 <form action="/create_encounter" method="post">
 
-  <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
-
-  <div class="form-group">
-    <label for="patient_id">
-      Patient
-    </label>
-
-    <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :firstname, @encounter.patient_id), :class => "form-control") %>
+  <div class="row mb-3">
+    <div class="col">
+      <div class="form-group">
+        <label for="patient_id">
+          Patient
+        </label>
+    
+        <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :fullname, @encounter.patient_id), :class => "form-control") %>
+      </div>
+    </div>  
+    
+    <div class="col">
+      <div class="form-group">
+        <label for="provider_id">
+          Seen by
+        </label>
+    
+        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.provider_id), :class => "form-control") %>
+      </div>
+    </div>
+    
+    <div class="col">
+      <div class="form-group">
+        <label for="approving_provider_id">
+          Approving provider
+        </label>
+        
+    
+        <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :class => "form-control") %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="chief_complaint">
-      Chief complaint
-    </label>
-
-    <input type="text" id="chief_complaint" name="chief_complaint" class="form-control">
+  
+  <div class="row mb-3">
+    <div class="col-8 pt-3">
+      <h2>Visit</h2>
+      <div class="form-group">
+        <label for="chief_complaint">
+          Chief complaint
+        </label>
+    
+        <input type="text" id="chief_complaint" name="chief_complaint" class="form-control">
+      </div>
+    
+      <div class="form-group pb-3">
+        <label for="notes">
+          Notes
+        </label>
+    
+        <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
+      </div>
+    
+      <div class="form-group">
+        <label for="location_id">
+          Location
+        </label>
+    
+        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, @encounter.location_id), :class => "form-control") %>
+      </div>
+    </div>
+    
+    <div class="col-4 bg-primary rounded pt-3">
+      <h2>Vitals</h2>
+      <div class="form-group">
+        <label for="height">
+          Height (cm)
+        </label>
+    
+        <input type="text" id="height" name="height" class="form-control" value="<%= @encounter.height %>">
+      </div>
+    
+      <div class="form-group">
+        <label for="weight">
+          Weight (kg)
+        </label>
+    
+        <input type="text" id="weight" name="weight" class="form-control" value="<%= @encounter.weight %>">
+      </div>
+      
+      <div class="form-group">
+        <label for="blood_pressure">
+          Blood pressure
+        </label>
+    
+        <input type="text" id="blood_pressure" name="blood_pressure" class="form-control" value="<%= @encounter.blood_pressure %>">
+      </div>
+  
+      <div class="form-group">
+        <label for="temperature">
+          Temperature (&degF)
+        </label>
+    
+        <input type="text" id="temperature" name="temperature" class="form-control" value="<%= @encounter.temperature %>">
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="notes">
-      Notes
-    </label>
-
-    <input type="text" id="notes" name="notes" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="location_id">
-      Location
-    </label>
-
-    <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, @encounter.location_id), :class => "form-control") %>
-  </div>
-
-  <div class="form-group">
-    <label for="approving_provider_id">
-      Approving provider
-    </label>
-
-    <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :created_at, @encounter.approving_provider_id), :class => "form-control") %>
-  </div>
+  
 
   <button class="btn btn-block btn-outline-secondary">
     Create encounter

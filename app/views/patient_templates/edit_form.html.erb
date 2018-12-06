@@ -1,5 +1,5 @@
 <h1>
-  Edit patient #<%= @patient.id %>
+  Edit <%= @patient.firstname %> <%= @patient.lastname %>'s information
 </h1>
 
 <hr>
@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <label for="firstname">
-      Firstname
+      First name
     </label>
 
     <input type="text" id="firstname" name="firstname" class="form-control" value="<%= @patient.firstname %>">
@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <label for="lastname">
-      Lastname
+      Last name
     </label>
 
     <input type="text" id="lastname" name="lastname" class="form-control" value="<%= @patient.lastname %>">
@@ -32,7 +32,7 @@
 
   <div class="form-group">
     <label for="dob">
-      Dob
+      Date of birth (YYYY-MM-DD)
     </label>
 
     <input type="text" id="dob" name="dob" class="form-control" value="<%= @patient.dob %>">
@@ -40,10 +40,10 @@
 
   <div class="form-group">
     <label for="phone_num">
-      Phone num
+      Phone number
     </label>
 
-    <input type="text" id="phone_num" name="phone_num" class="form-control" value="<%= @patient.phone_num %>">
+    <input type="text" id="phone_num" name="phone_num" class="form-control" value="<%= number_to_phone(@patient.phone_num) %>">
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

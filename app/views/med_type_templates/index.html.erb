@@ -1,11 +1,11 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      All med types
+      All medication types
     </h1>
 
     <a href="/med_types/new" class="btn btn-block btn-outline-secondary">
-      Add a new med type
+      Add a new medication type
     </a>
   </div>
 </div>
@@ -24,20 +24,9 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
+        
         <th>
-          ID
-        </th>
-
-        <th>
-          Name
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Medication Type
         </th>
 
         <th>
@@ -46,20 +35,9 @@
 
       <% @med_types.each do |med_type| %>
       <tr>
-        <td>
-          <%= med_type.id %>
-        </td>
 
         <td>
           <%= med_type.name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(med_type.created_at) %> ago
-        </td>
-
-        <td>
-          <%= time_ago_in_words(med_type.updated_at) %> ago
         </td>
 
         <td>

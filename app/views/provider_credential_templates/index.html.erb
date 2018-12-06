@@ -25,23 +25,11 @@
     <table class="table">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Provider
         </th>
 
         <th>
           Credential
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -51,13 +39,9 @@
       <% @provider_credentials.each do |provider_credential| %>
       <tr>
         <td>
-          <%= provider_credential.id %>
-        </td>
-
-        <td>
           <% if provider_credential.provider.present? %>
             <a href="/providers/<%= provider_credential.provider.id %>">
-              <%= provider_credential.provider.created_at %>
+              <%= provider_credential.provider.fullname %>
             </a>
           <% end %>
         </td>
@@ -68,14 +52,6 @@
               <%= provider_credential.credential.name %>
             </a>
           <% end %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(provider_credential.created_at) %> ago
-        </td>
-
-        <td>
-          <%= time_ago_in_words(provider_credential.updated_at) %> ago
         </td>
 
         <td>

@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Prescription #<%= @prescription.id %> details
+      Prescription details
     </h1>
 
     <div class="row mb-3">
@@ -24,65 +24,82 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Patient
-      </dt>
-      <dd>
-        <% if @prescription.patient.present? %>
-          <a href="/patients/<%= @prescription.patient_id %>">
-            <%= @prescription.patient.firstname %>
-          </a>
-        <% end %>
-      </dd>
+  
+   <div class="row mb-3">
+    <div class="col-8">
+      <dl>
+        <dt>
+          Patient
+        </dt>
+        <dd>
+          <% if @prescription.patient.present? %>
+            <a href="/patients/<%= @prescription.patient_id %>">
+              <%= @prescription.patient.fullname %>
+            </a>
+          <% end %>
+        </dd>
+        
+        <dt>
+          Medication
+        </dt>
+        <dd>
+          <% if @prescription.medication.present? %>
+            <a href="/medications/<%= @prescription.medication_id %>">
+              <%= @prescription.medication.name_with_dosage %>
+            </a>
+          <% end %>
+        </dd>
+        
+        <dt>
+          Instructions
+        </dt>
+        <dd>
+          <% if @prescription.instructions.present? %>
+              <%= @prescription.instructions %>
+          <% end %>
+        </dd> 
+      </dl>
+    </div>
 
-      <dt>
-        Provider
-      </dt>
-      <dd>
-        <% if @prescription.provider.present? %>
-          <a href="/providers/<%= @prescription.provider_id %>">
-            <%= @prescription.provider.created_at %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Encounter
-      </dt>
-      <dd>
-        <% if @prescription.encounter.present? %>
-          <a href="/encounters/<%= @prescription.encounter_id %>">
-            <%= @prescription.encounter.provider_id %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Medication
-      </dt>
-      <dd>
-        <% if @prescription.medication.present? %>
-          <a href="/medications/<%= @prescription.medication_id %>">
-            <%= @prescription.medication.name %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@prescription.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@prescription.updated_at) %> ago
-      </dd>
-    </dl>
+    <div class="col-4 bg-primary rounded pt-3 text-white">
+      <dl>
+        <dt>
+          Prescribed by
+        </dt>
+        <dd>
+          <% if @prescription.provider.present? %>
+            <a class="text-white" href="/providers/<%= @prescription.provider_id %>">
+              <%= @prescription.provider.fullname %>
+            </a>
+          <% end %>
+        </dd>
+  
+        <dt>
+          Encounter
+        </dt>
+        <dd>
+          <% if @prescription.encounter.present? %>
+            <a class="text-white" href="/encounters/<%= @prescription.encounter_id %>">
+              <%= @prescription.encounter.name %>
+            </a>
+          <% end %>
+        </dd>
+  
+        <dt>
+          Last updated
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@prescription.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
+    </div>
   </div>
 </div>
 
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <%= render partial: "prescription_templates/prescription_prescriptions" %>
+  </div>
+</div>

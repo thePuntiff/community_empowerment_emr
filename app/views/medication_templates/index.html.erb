@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      All medications
+      Medication List
     </h1>
 
     <a href="/medications/new" class="btn btn-block btn-outline-secondary">
@@ -25,23 +25,13 @@
     <table class="table">
       <tr>
         <th>
-          ID
+          Medication name
         </th>
-
         <th>
-          Name
+          Dosage
         </th>
-
         <th>
-          Med type
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Medication type
         </th>
 
         <th>
@@ -51,27 +41,17 @@
       <% @medications.each do |medication| %>
       <tr>
         <td>
-          <%= medication.id %>
-        </td>
-
-        <td>
           <%= medication.name %>
         </td>
-
+        <td>
+          <%= medication.dosage %>
+        </td>
         <td>
           <% if medication.med_type.present? %>
             <a href="/med_types/<%= medication.med_type.id %>">
               <%= medication.med_type.name %>
             </a>
           <% end %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(medication.created_at) %> ago
-        </td>
-
-        <td>
-          <%= time_ago_in_words(medication.updated_at) %> ago
         </td>
 
         <td>

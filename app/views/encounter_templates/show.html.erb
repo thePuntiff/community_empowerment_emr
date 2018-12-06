@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Encounter #<%= @encounter.id %> details
+      Visit details for <%= @encounter.patient.fullname %> (<%= @encounter.created_at.to_date %>)
     </h1>
 
     <div class="row mb-3">
@@ -24,79 +24,126 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Provider
-      </dt>
-      <dd>
-        <% if @encounter.provider.present? %>
-          <a href="/providers/<%= @encounter.provider_id %>">
-            <%= @encounter.provider.created_at %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Patient
-      </dt>
-      <dd>
-        <% if @encounter.patient.present? %>
-          <a href="/patients/<%= @encounter.patient_id %>">
-            <%= @encounter.patient.firstname %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Chief complaint
-      </dt>
-      <dd>
-        <%= @encounter.chief_complaint %>
-      </dd>
-
-      <dt>
-        Notes
-      </dt>
-      <dd>
-        <%= @encounter.notes %>
-      </dd>
-
-      <dt>
-        Location
-      </dt>
-      <dd>
-        <% if @encounter.location.present? %>
-          <a href="/locations/<%= @encounter.location_id %>">
-            <%= @encounter.location.name %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Approving provider
-      </dt>
-      <dd>
-        <% if @encounter.approving_provider.present? %>
-          <a href="/providers/<%= @encounter.approving_provider_id %>">
-            <%= @encounter.approving_provider.created_at %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@encounter.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@encounter.updated_at) %> ago
-      </dd>
-    </dl>
+    <div class="row mb-3">
+      <div class="col">
+        <dt>
+          Patient
+        </dt>
+        <dd>
+          <% if @encounter.patient.present? %>
+            <a href="/patients/<%= @encounter.patient_id %>">
+              <%= @encounter.patient.fullname %>
+            </a>
+          <% end %>
+        </dd>
+      </div>
+    
+      <div class="col">
+        <dt>
+          Seen by
+        </dt>
+        <dd>
+          <% if @encounter.provider.present? %>
+            <a href="/providers/<%= @encounter.provider_id %>">
+              <%= @encounter.provider.fullname %>
+            </a>
+          <% end %>
+        </dd>
+      </div>
+      
+      <div class="col">
+        <dt>
+          Approving provider
+        </dt>
+        <dd>
+          <% if @encounter.approving_provider.present? %>
+            <a href="/providers/<%= @encounter.approving_provider_id %>">
+              <%= @encounter.approving_provider.fullname %>
+            </a>
+          <% end %>
+        </dd>
+      </div>
+      
+    </div>
+    
+    <div class="row mb-3">  
+      <div class="col-8 pt-3">
+        <dl>
+          <h2>
+            Visit
+          </h2>
+          <hr>
+          <dt>
+            Chief complaint
+          </dt>
+          <dd>
+            <%= @encounter.chief_complaint %>
+          </dd>
+    
+          <dt>
+            Notes
+          </dt>
+          <dd>
+            <%= @encounter.notes %>
+          </dd>
+    
+          <dt>
+            Location
+          </dt>
+          <dd>
+            <% if @encounter.location.present? %>
+              <a href="/locations/<%= @encounter.location_id %>">
+                <%= @encounter.location.name %>
+              </a>
+            <% end %>
+          </dd>
+    
+          <dt>
+            Last updated
+          </dt>
+          <dd>
+            <%= time_ago_in_words(@encounter.updated_at) %> ago
+          </dd>
+        </dl>
+      </div>
+      
+      <div class="col-4 bg-primary rounded pt-3 text-white">
+        <dl>
+          <h2 class="text-white">
+            Vitals
+          </h2>
+          <hr>
+    
+          <dt>
+            Height
+          </dt>
+          <dd class="text-white">
+            <%= @encounter.height %>
+          </dd>
+    
+          <dt>
+            Weight
+          </dt>
+          <dd>
+            <%= @encounter.weight %>
+          </dd>
+    
+          <dt>
+            Blood pressure
+          </dt>
+          <dd>
+            <%= @encounter.blood_pressure %>
+          </dd>
+    
+          <dt>
+            Temperature
+          </dt>
+          <dd>
+            <%= @encounter.temperature %>
+          </dd>
+        <dl>
+      </div>
+    </div>  
   </div>
 </div>
 

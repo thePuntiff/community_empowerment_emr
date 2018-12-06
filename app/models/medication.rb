@@ -9,5 +9,9 @@ class Medication < ApplicationRecord
   # Indirect associations
 
   # Validations
+  
+  def name_with_dosage
+   "#{name} | #{dosage}"
+  end
 
 end

@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => "patients#index"
+  root :to => "encounters#index"
+  
+  # Routes for the admin
+  get("/adminpanel", {:controller => "admin_panel", :action => "index"})
+  
+  # Routes for the summary views
+  get("/summary", {:controller => "summary", :action => "show"})
+  
   # Routes for the Sex resource:
 
   # CREATE
@@ -29,6 +36,7 @@ Rails.application.routes.draw do
   post("/create_prescription_from_medication", { :controller => "prescriptions", :action => "create_row_from_medication" })
   post("/create_prescription_from_encounter", { :controller => "prescriptions", :action => "create_row_from_encounter" })
   post("/create_prescription_from_patient", { :controller => "prescriptions", :action => "create_row_from_patient" })
+  post("/create_prescription_from_prescription", { :controller => "prescriptions", :action => "create_row_from_prescription" })
 
   # READ
   get("/prescriptions", { :controller => "prescriptions", :action => "index" })

@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Medication #<%= @medication.id %> details
+      <%= @medication.name %> details
     </h1>
 
     <div class="row mb-3">
@@ -26,14 +26,21 @@
 
     <dl>
       <dt>
-        Name
+        Medication name
       </dt>
       <dd>
         <%= @medication.name %>
       </dd>
+      
+      <dt>
+        Dosage
+      </dt>
+      <dd>
+        <%= @medication.dosage %>
+      </dd>
 
       <dt>
-        Med type
+        Medication type
       </dt>
       <dd>
         <% if @medication.med_type.present? %>
@@ -44,24 +51,11 @@
       </dd>
 
       <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@medication.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
+        Last updated
       </dt>
       <dd>
         <%= time_ago_in_words(@medication.updated_at) %> ago
       </dd>
     </dl>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "medication_templates/medication_prescriptions" %>
   </div>
 </div>

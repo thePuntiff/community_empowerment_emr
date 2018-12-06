@@ -18,4 +18,9 @@ class Encounter < ApplicationRecord
 
   # Validations
 
+  def name
+   "#{created_at.to_date} visit @ #{location.name}"
+  end
+
+
 end

@@ -10,4 +10,5 @@ class ProvidersController < ApplicationController
 
     render("provider_templates/show.html.erb")
   end
+  
 end

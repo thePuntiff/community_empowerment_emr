@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Med type #<%= @med_type.id %> details
+      <%= @med_type.name %> Medications
     </h1>
 
     <div class="row mb-3">
@@ -24,28 +24,6 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @med_type.name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@med_type.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@med_type.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
 

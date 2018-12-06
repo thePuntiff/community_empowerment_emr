@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Provider #<%= @provider.id %> details
+      Provider details for <%= @provider.fullname %>
     </h1>
 
     <div class="row mb-3">
@@ -41,56 +41,43 @@
         <%= @provider.email %>
       </dd>
 
-      <dt>
-        Password
-      </dt>
-      <dd>
-        <%= @provider.password %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@provider.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@provider.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "provider_templates/provider_provider_credentials" %>
+<% if @provider.credentials.count > 0 %>
+  <div class="row mb-3">
+    <div class="col-md-8 offset-md-2">
+      <%= render partial: "provider_templates/provider_credentials" %>
+    </div>
   </div>
-</div>
+<% else %>
+<% end %>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "provider_templates/provider_encounters" %>
-  </div>
-</div>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "provider_templates/provider_prescriptions" %>
+<% if @provider.encounters.count > 0 %>
+  <div class="row mb-3">
+    <div class="col-md-8 offset-md-2">
+      <%= render partial: "provider_templates/provider_encounters" %>
+    </div>
   </div>
-</div>
+<% else %>
+<% end %>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "provider_templates/provider_approved_encounters" %>
+<% if @provider.prescriptions.count > 0 %>
+  <div class="row mb-3">
+    <div class="col-md-8 offset-md-2">
+      <%= render partial: "provider_templates/provider_prescriptions" %>
+    </div>
   </div>
-</div>
+<% else %>
+<% end %>
 
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "provider_templates/provider_credentials" %>
+<% if @provider.approved_encounters.count > 0 %>
+  <div class="row mb-3">
+    <div class="col-md-8 offset-md-2">
+      <%= render partial: "provider_templates/provider_approved_encounters" %>
+    </div>
   </div>
-</div>
+<% else %>
+<% end %>

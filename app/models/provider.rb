@@ -18,6 +18,10 @@ class Provider < ApplicationRecord
              :through => :provider_credentials,
              :source => :credential
 
+  def fullname
+   "#{firstname} #{lastname}"
+  end
+
   # Validations
 
   # Include default devise modules. Others available are:

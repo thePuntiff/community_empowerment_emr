@@ -25,19 +25,7 @@
     <table class="table">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Patient
-        </th>
-
-        <th>
-          Provider
-        </th>
-
-        <th>
-          Encounter
         </th>
 
         <th>
@@ -45,11 +33,15 @@
         </th>
 
         <th>
-          Created at
+          Instructions
         </th>
 
         <th>
-          Updated at
+          Prescribed by
+        </th>
+
+        <th>
+          Visit
         </th>
 
         <th>
@@ -58,30 +50,11 @@
 
       <% @prescriptions.each do |prescription| %>
       <tr>
-        <td>
-          <%= prescription.id %>
-        </td>
 
         <td>
           <% if prescription.patient.present? %>
             <a href="/patients/<%= prescription.patient.id %>">
-              <%= prescription.patient.firstname %>
-            </a>
-          <% end %>
-        </td>
-
-        <td>
-          <% if prescription.provider.present? %>
-            <a href="/providers/<%= prescription.provider.id %>">
-              <%= prescription.provider.created_at %>
-            </a>
-          <% end %>
-        </td>
-
-        <td>
-          <% if prescription.encounter.present? %>
-            <a href="/encounters/<%= prescription.encounter.id %>">
-              <%= prescription.encounter.provider_id %>
+              <%= prescription.patient.firstname %> <%= prescription.patient.lastname %>
             </a>
           <% end %>
         </td>
@@ -89,17 +62,29 @@
         <td>
           <% if prescription.medication.present? %>
             <a href="/medications/<%= prescription.medication.id %>">
-              <%= prescription.medication.name %>
+              <%= prescription.medication.name_with_dosage %>
             </a>
           <% end %>
         </td>
+        
+        <td>
+          <%= prescription.instructions %>
+        </td>        
 
         <td>
-          <%= time_ago_in_words(prescription.created_at) %> ago
-        </td>
+          <% if prescription.provider.present? %>
+            <a href="/providers/<%= prescription.provider.id %>">
+              <%= prescription.provider.firstname %> <%= prescription.provider.lastname %>
+            </a>
+          <% end %>
+        </td> 
 
         <td>
-          <%= time_ago_in_words(prescription.updated_at) %> ago
+          <% if prescription.encounter.present? %>
+            <a href="/encounters/<%= prescription.encounter.id %>">
+              <%= prescription.encounter.name %>
+            </a>
+          <% end %>
         </td>
 
         <td>

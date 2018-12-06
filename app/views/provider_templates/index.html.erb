@@ -20,32 +20,21 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
+
         <th>
-          ID
+          First name
         </th>
 
         <th>
-          Firstname
+          Last name
         </th>
-
+        
         <th>
-          Lastname
-        </th>
+          Credentials
+        </th>        
 
         <th>
           Email
-        </th>
-
-        <th>
-          Password
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -54,9 +43,6 @@
 
       <% @providers.each do |provider| %>
       <tr>
-        <td>
-          <%= provider.id %>
-        </td>
 
         <td>
           <%= provider.firstname %>
@@ -65,21 +51,17 @@
         <td>
           <%= provider.lastname %>
         </td>
+        
+        <td>
+          <% credentials = [] %>
+          <% provider.credential_ids.each do |credential| %>
+              <% credentials.push(Credential.find(credential).name) %>
+          <% end %>
+          <%= credentials.join(", ")%>
+        </td>
 
         <td>
           <%= provider.email %>
-        </td>
-
-        <td>
-          <%= provider.password %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(provider.created_at) %> ago
-        </td>
-
-        <td>
-          <%= time_ago_in_words(provider.updated_at) %> ago
         </td>
 
         <td>

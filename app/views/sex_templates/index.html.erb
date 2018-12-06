@@ -10,11 +10,11 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12 mb-3">
-    <%= render partial: "sex_templates/sexes_search_form" %>
-  </div>
-</div>
+<!--<div class="row">-->
+<!--  <div class="col-md-12 mb-3">-->
+<!--    <%= render partial: "sex_templates/sexes_search_form" %>-->
+<!--  </div>-->
+<!--</div>-->
 
 
 
@@ -25,19 +25,11 @@
     <table class="table">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
           Name
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          # of patients
         </th>
 
         <th>
@@ -46,20 +38,13 @@
 
       <% @sexes.each do |sex| %>
       <tr>
-        <td>
-          <%= sex.id %>
-        </td>
 
         <td>
           <%= sex.name %>
         </td>
-
+        
         <td>
-          <%= time_ago_in_words(sex.created_at) %> ago
-        </td>
-
-        <td>
-          <%= time_ago_in_words(sex.updated_at) %> ago
+          <%= sex.patients.count %>
         </td>
 
         <td>

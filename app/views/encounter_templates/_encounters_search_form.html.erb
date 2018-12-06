@@ -2,21 +2,36 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
-    <%= f.label :notes_cont, "Notes contains" %>
+    <%= f.label :patient_firstname_cont, "Patient first name" %>
+    <%= f.text_field :patient_firstname_cont, :class => "form-control", :placeholder => "Patient firstname contains" %>
+  </div>
+  
+    <div class="form-group">
+    <%= f.label :patient_lastname_cont, "Patient last name" %>
+    <%= f.text_field :patient_lastname_cont, :class => "form-control", :placeholder => "Patient lastname contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location_name_cont, "Location" %>
+    <%= f.text_field :location_name_cont, :class => "form-control", :placeholder => "Location name contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes_cont, "Notes" %>
     <%= f.text_field :notes_cont, :class => "form-control", :placeholder => "Notes contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :chief_complaint_cont, "Chief complaint contains" %>
+    <%= f.label :chief_complaint_cont, "Chief complaint" %>
     <%= f.text_field :chief_complaint_cont, :class => "form-control", :placeholder => "Chief complaint contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :created_at, "Created at" %>
+    <%= f.label :created_at, "Encounter date" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
         <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
-          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Encounter date greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
           <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
@@ -25,7 +40,7 @@
 
       <div class='col-md-6'>
         <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
-          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Encounter date less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
           <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
           </div>
@@ -51,96 +66,106 @@
       });
   </script>
 
-
   <div class="form-group">
-    <%= f.label :created_at, "Provider Created at" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='providergteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :provider_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at greater than or equal to", :data => {:target => '#providergteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#providergteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='col-md-6'>
-        <div class='input-group date' id='providerlteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :provider_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at less than or equal to", :data => {:target => '#providerlteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#providerlteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= f.label :provider_firsttname_cont, "Provider first name" %>
+    <%= f.text_field :provider_firstname_cont, :class => "form-control", :placeholder => "Provider first name contains" %>
   </div>
-  <script type="text/javascript">
-      $(function () {
-          $('#providergteqcreated_atPicker').datetimepicker({
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#providerlteqcreated_atPicker').datetimepicker({
-              useCurrent: false,
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#providergteqcreated_atPicker').on("dp.change", function (e) {
-              $('#providerlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-          });
-          $('#providerlteqcreated_atPicker').on("dp.change", function (e) {
-              $('#providergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-          });
-      });
-  </script>
-
+  
   <div class="form-group">
-    <%= f.label :created_at, "Provider Created at" %>
-    <div class="row">
-      <div class='col-md-6 mb-1'>
-        <div class='input-group date' id='approving_providergteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :approving_provider_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at greater than or equal to", :data => {:target => '#approving_providergteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#approving_providergteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='col-md-6'>
-        <div class='input-group date' id='approving_providerlteqcreated_atPicker' data-target-input="nearest">
-          <%= f.text_field :approving_provider_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at less than or equal to", :data => {:target => '#approving_providerlteqcreated_atPicker'} %>
-          <div class="input-group-append" data-target='#approving_providerlteqcreated_atPicker' data-toggle="datetimepicker">
-            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript">
-      $(function () {
-          $('#approving_providergteqcreated_atPicker').datetimepicker({
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#approving_providerlteqcreated_atPicker').datetimepicker({
-              useCurrent: false,
-              format: 'YYYY-MM-DD hh:mm:SS'
-          });
-          $('#approving_providergteqcreated_atPicker').on("dp.change", function (e) {
-              $('#approving_providerlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
-          });
-          $('#approving_providerlteqcreated_atPicker').on("dp.change", function (e) {
-              $('#approving_providergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
-          });
-      });
-  </script>
-
-  <div class="form-group">
-    <%= f.label :patient_firstname_cont, "Patient firstname contains" %>
-    <%= f.text_field :patient_firstname_cont, :class => "form-control", :placeholder => "Patient firstname contains" %>
+    <%= f.label :provider_lasttname_cont, "Provider last name" %>
+    <%= f.text_field :provider_lastname_cont, :class => "form-control", :placeholder => "Provider last name contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :location_name_cont, "Location name contains" %>
-    <%= f.text_field :location_name_cont, :class => "form-control", :placeholder => "Location name contains" %>
+    <%= f.label :approving_provider_firsttname_cont, "Approving provider first name" %>
+    <%= f.text_field :approving_provider_firstname_cont, :class => "form-control", :placeholder => "Approving provider first name contains" %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :approving_provider_lasttname_cont, "Approving provider last name" %>
+    <%= f.text_field :approving_provider_lastname_cont, :class => "form-control", :placeholder => "Approving provider last name contains" %>
+  </div>
+
+
+  <!--<div class="form-group">-->
+  <!--  <%= f.label :created_at, "Provider Created at" %>-->
+  <!--  <div class="row">-->
+  <!--    <div class='col-md-6 mb-1'>-->
+  <!--      <div class='input-group date' id='providergteqcreated_atPicker' data-target-input="nearest">-->
+  <!--        <%= f.text_field :provider_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at greater than or equal to", :data => {:target => '#providergteqcreated_atPicker'} %>-->
+  <!--        <div class="input-group-append" data-target='#providergteqcreated_atPicker' data-toggle="datetimepicker">-->
+  <!--          <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class='col-md-6'>-->
+  <!--      <div class='input-group date' id='providerlteqcreated_atPicker' data-target-input="nearest">-->
+  <!--        <%= f.text_field :provider_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at less than or equal to", :data => {:target => '#providerlteqcreated_atPicker'} %>-->
+  <!--        <div class="input-group-append" data-target='#providerlteqcreated_atPicker' data-toggle="datetimepicker">-->
+  <!--          <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <!--<script type="text/javascript">-->
+  <!--    $(function () {-->
+  <!--        $('#providergteqcreated_atPicker').datetimepicker({-->
+  <!--            format: 'YYYY-MM-DD hh:mm:SS'-->
+  <!--        });-->
+  <!--        $('#providerlteqcreated_atPicker').datetimepicker({-->
+  <!--            useCurrent: false,-->
+  <!--            format: 'YYYY-MM-DD hh:mm:SS'-->
+  <!--        });-->
+  <!--        $('#providergteqcreated_atPicker').on("dp.change", function (e) {-->
+  <!--            $('#providerlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);-->
+  <!--        });-->
+  <!--        $('#providerlteqcreated_atPicker').on("dp.change", function (e) {-->
+  <!--            $('#providergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);-->
+  <!--        });-->
+  <!--    });-->
+  <!--</script>-->
+
+  <!--<div class="form-group">-->
+  <!--  <%= f.label :created_at, "Provider Created at" %>-->
+  <!--  <div class="row">-->
+  <!--    <div class='col-md-6 mb-1'>-->
+  <!--      <div class='input-group date' id='approving_providergteqcreated_atPicker' data-target-input="nearest">-->
+  <!--        <%= f.text_field :approving_provider_created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at greater than or equal to", :data => {:target => '#approving_providergteqcreated_atPicker'} %>-->
+  <!--        <div class="input-group-append" data-target='#approving_providergteqcreated_atPicker' data-toggle="datetimepicker">-->
+  <!--          <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+
+  <!--    <div class='col-md-6'>-->
+  <!--      <div class='input-group date' id='approving_providerlteqcreated_atPicker' data-target-input="nearest">-->
+  <!--        <%= f.text_field :approving_provider_created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Provider Created at less than or equal to", :data => {:target => '#approving_providerlteqcreated_atPicker'} %>-->
+  <!--        <div class="input-group-append" data-target='#approving_providerlteqcreated_atPicker' data-toggle="datetimepicker">-->
+  <!--          <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <!--<script type="text/javascript">-->
+  <!--    $(function () {-->
+  <!--        $('#approving_providergteqcreated_atPicker').datetimepicker({-->
+  <!--            format: 'YYYY-MM-DD hh:mm:SS'-->
+  <!--        });-->
+  <!--        $('#approving_providerlteqcreated_atPicker').datetimepicker({-->
+  <!--            useCurrent: false,-->
+  <!--            format: 'YYYY-MM-DD hh:mm:SS'-->
+  <!--        });-->
+  <!--        $('#approving_providergteqcreated_atPicker').on("dp.change", function (e) {-->
+  <!--            $('#approving_providerlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);-->
+  <!--        });-->
+  <!--        $('#approving_providerlteqcreated_atPicker').on("dp.change", function (e) {-->
+  <!--            $('#approving_providergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);-->
+  <!--        });-->
+  <!--    });-->
+  <!--</script>-->
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>

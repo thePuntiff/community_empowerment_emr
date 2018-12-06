@@ -25,15 +25,11 @@
     <table class="table">
       <tr>
         <th>
-          ID
+          First name
         </th>
 
         <th>
-          Firstname
-        </th>
-
-        <th>
-          Lastname
+          Last name
         </th>
 
         <th>
@@ -41,19 +37,23 @@
         </th>
 
         <th>
-          Dob
+          Date of Birth
+        </th>
+        
+        <th>
+          Age
         </th>
 
         <th>
-          Phone num
+          Phone number
         </th>
 
         <th>
-          Created at
+          First seen
         </th>
 
         <th>
-          Updated at
+          Last updated
         </th>
 
         <th>
@@ -62,10 +62,7 @@
 
       <% @patients.each do |patient| %>
       <tr>
-        <td>
-          <%= patient.id %>
-        </td>
-
+        
         <td>
           <%= patient.firstname %>
         </td>
@@ -85,9 +82,14 @@
         <td>
           <%= patient.dob %>
         </td>
+        
+        <td>
+          <%  now = Time.now.utc.to_date %>
+          <%= now.year - patient.dob.year - ((now.month > patient.dob.month || (now.month == patient.dob.month && now.day >= patient.dob.day)) ? 0 : 1) %>
+        </td>
 
         <td>
-          <%= patient.phone_num %>
+          <%= number_to_phone(patient.phone_num) %>
         </td>
 
         <td>
@@ -100,7 +102,7 @@
 
         <td>
           <a href="/patients/<%= patient.id %>">
-            Show details
+            View patient details
           </a>
         </td>
       </tr>

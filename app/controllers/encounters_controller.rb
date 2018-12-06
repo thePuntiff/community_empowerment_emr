@@ -28,11 +28,16 @@ class EncountersController < ApplicationController
     @encounter.notes = params.fetch("notes")
     @encounter.location_id = params.fetch("location_id")
     @encounter.approving_provider_id = params.fetch("approving_provider_id")
+    @encounter.height = params.fetch("height")
+    @encounter.weight = params.fetch("weight")
+    @encounter.blood_pressure = params.fetch("blood_pressure")
+    @encounter.temperature = params.fetch("temperature")
 
     if @encounter.valid?
       @encounter.save
 
-      redirect_back(:fallback_location => "/encounters", :notice => "Encounter created successfully.")
+      redirect_to("/encounters/#{@encounter.id}", :notice => "Encounter created successfully.")
+      # redirect_back(:fallback_location => "/encounters", :notice => "Encounter created successfully.")
     else
       render("encounter_templates/new_form_with_errors.html.erb")
     end
@@ -47,6 +52,10 @@ class EncountersController < ApplicationController
     @encounter.notes = params.fetch("notes")
     @encounter.location_id = params.fetch("location_id")
     @encounter.approving_provider_id = params.fetch("approving_provider_id")
+    @encounter.height = params.fetch("height")
+    @encounter.weight = params.fetch("weight")
+    @encounter.blood_pressure = params.fetch("blood_pressure")
+    @encounter.temperature = params.fetch("temperature")
 
     if @encounter.valid?
       @encounter.save
@@ -66,6 +75,10 @@ class EncountersController < ApplicationController
     @encounter.notes = params.fetch("notes")
     @encounter.location_id = params.fetch("location_id")
     @encounter.approving_provider_id = params.fetch("approving_provider_id")
+    @encounter.height = params.fetch("height")
+    @encounter.weight = params.fetch("weight")
+    @encounter.blood_pressure = params.fetch("blood_pressure")
+    @encounter.temperature = params.fetch("temperature")
 
     if @encounter.valid?
       @encounter.save
@@ -91,6 +104,10 @@ class EncountersController < ApplicationController
     @encounter.notes = params.fetch("notes")
     @encounter.location_id = params.fetch("location_id")
     @encounter.approving_provider_id = params.fetch("approving_provider_id")
+    @encounter.height = params.fetch("height")
+    @encounter.weight = params.fetch("weight")
+    @encounter.blood_pressure = params.fetch("blood_pressure")
+    @encounter.temperature = params.fetch("temperature")
 
     if @encounter.valid?
       @encounter.save

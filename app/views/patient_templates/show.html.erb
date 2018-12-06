@@ -1,8 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
-    <h1>
-      Patient #<%= @patient.id %> details
-    </h1>
+    <h1 style="display:inline"> <%= @patient.firstname %> <%= @patient.lastname %> </h1> <p style="display: inline">| Patient details </p>
+    
 
     <div class="row mb-3">
       <div class="col">
@@ -23,22 +22,12 @@
         </a>
       </div>
     </div>
+  </div>
+</div>
 
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
     <dl>
-      <dt>
-        Firstname
-      </dt>
-      <dd>
-        <%= @patient.firstname %>
-      </dd>
-
-      <dt>
-        Lastname
-      </dt>
-      <dd>
-        <%= @patient.lastname %>
-      </dd>
-
       <dt>
         Sex
       </dt>
@@ -51,28 +40,28 @@
       </dd>
 
       <dt>
-        Dob
+        Date of birth
       </dt>
       <dd>
         <%= @patient.dob %>
       </dd>
 
       <dt>
-        Phone num
+        Phone number
       </dt>
       <dd>
-        <%= @patient.phone_num %>
+        <%= number_to_phone(@patient.phone_num) %>
+      </dd>
+      <hr>
+      <dt>
+        First seen
+      </dt>
+      <dd>
+        <%= @patient.created_at.to_date %>
       </dd>
 
       <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@patient.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
+        Last updated
       </dt>
       <dd>
         <%= time_ago_in_words(@patient.updated_at) %> ago
@@ -80,6 +69,7 @@
     </dl>
   </div>
 </div>
+
 
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">

@@ -10,14 +10,13 @@
   <ul class="list-group list-group-flush">
     <% @patient.encounters.each do |encounter| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
+        
+          <%= encounter.created_at.to_date %> visit @ <%= encounter.location.name %>
+        
         <a href="/encounters/<%= encounter.id %>">
-          <%= encounter.provider_id %>
+          see details
         </a>
-
-        <a href="/delete_encounter_from_patient/<%= encounter.id %>">
-          Delete
-        </a>
-
+        
       </li>
     <% end %>
 

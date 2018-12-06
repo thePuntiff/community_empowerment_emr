@@ -25,14 +25,6 @@
     <table class="table">
       <tr>
         <th>
-          ID
-        </th>
-
-        <th>
-          Provider
-        </th>
-
-        <th>
           Patient
         </th>
 
@@ -47,18 +39,23 @@
         <th>
           Location
         </th>
+        
+        <th>
+          Seen by
+        </th>
+
 
         <th>
           Approving provider
         </th>
 
         <th>
-          Created at
+          Encounter Date
         </th>
 
-        <th>
-          Updated at
-        </th>
+        <!--<th>
+          Last Updated
+        </th>-->
 
         <th>
         </th>
@@ -66,32 +63,26 @@
 
       <% @encounters.each do |encounter| %>
       <tr>
-        <td>
-          <%= encounter.id %>
-        </td>
-
-        <td>
-          <% if encounter.provider.present? %>
-            <a href="/providers/<%= encounter.provider.id %>">
-              <%= encounter.provider.created_at %>
-            </a>
-          <% end %>
-        </td>
 
         <td>
           <% if encounter.patient.present? %>
             <a href="/patients/<%= encounter.patient.id %>">
-              <%= encounter.patient.firstname %>
+              <%= encounter.patient.firstname %> <%= encounter.patient.lastname %>
             </a>
           <% end %>
-        </td>
+        </td>   
+        
 
         <td>
           <%= encounter.chief_complaint %>
         </td>
 
         <td>
-          <%= encounter.notes %>
+          <% if encounter.notes.length > 50 %>
+            <%= encounter.notes[0, 50] %>...
+          <% else %>
+            <%= encounter.notes %>
+          <% end %>
         </td>
 
         <td>
@@ -101,23 +92,37 @@
             </a>
           <% end %>
         </td>
-
+        
         <td>
-          <% if encounter.approving_provider.present? %>
-            <a href="/providers/<%= encounter.approving_provider.id %>">
-              <%= encounter.approving_provider.created_at %>
+          <% if encounter.provider.present? %>
+            <a href="/providers/<%= encounter.provider.id %>">
+              <%= encounter.provider.fullname %>
             </a>
           <% end %>
         </td>
 
         <td>
-          <%= time_ago_in_words(encounter.created_at) %> ago
+          <% if encounter.approving_provider.present? %>
+            <a href="/providers/<%= encounter.approving_provider.id %>">
+              <%= encounter.approving_provider.fullname %>
+              <% credentials = [] %>
+              <% encounter.provider.credential_ids.each do |credential| %>
+                <% credentials.push(Credential.find(credential).name) %>
+              <% end %>
+              <%= credentials.join(", ")%>
+              
+            </a>
+          <% end %>
         </td>
 
         <td>
-          <%= time_ago_in_words(encounter.updated_at) %> ago
+          <%= encounter.created_at.to_date %>
         </td>
 
+        <!--<td>
+          <%= time_ago_in_words(encounter.updated_at) %> ago
+        </td>
+-->
         <td>
           <a href="/encounters/<%= encounter.id %>">
             Show details

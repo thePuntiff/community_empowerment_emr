@@ -1,17 +1,13 @@
-<form action="/create_prescription_from_patient" method="post">
-
-  <input type="hidden" name="patient_id" value="<%= @patient.id %>">
-
+<form action="/create_prescription_from_prescription" method="post">
+  
+  <input type="hidden" name="patient_id" value="<%= @prescription.patient_id %>">
+  
   <input type="hidden" name="provider_id" value="<%= current_provider.id %>">
 
-  <div class="form-group">
-    <label for="encounter_id">
-      Encounter
-    </label>
+  <input type="hidden" name="encounter_id" value="<%= @prescription.encounter_id %>">
 
-    <%= select_tag(:encounter_id, options_from_collection_for_select(@patient.encounters, :id, :name, @prescription.encounter_id), :class => "form-control") %>
-  </div>
-
+  <b>Add a new prescription for this patient</b>
+  
   <div class="form-group">
     <label for="medication_id">
       Medication
@@ -25,9 +21,8 @@
       Instructions
     </label>
 
-    <textarea class="form-control" id="instructions" name="instructions" rows="4"></textarea>
+    <input type="text" id="instructions" name="instructions" class="form-control">
   </div>
-  
 
   <button class="btn btn-block btn-outline-secondary">
     Create prescription

@@ -9,6 +9,10 @@ class Patient < ApplicationRecord
   has_many   :encounters,
              :dependent => :destroy
 
+  def fullname
+   "#{firstname} #{lastname}"
+  end
+
   # Indirect associations
 
   # Validations

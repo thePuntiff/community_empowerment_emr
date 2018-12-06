@@ -10,12 +10,13 @@
   <ul class="list-group list-group-flush">
     <% @encounter.prescriptions.each do |prescription| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <a href="/prescriptions/<%= prescription.id %>">
-          <%= prescription.patient_id %>
-        </a>
+        
+        <%= prescription.medication.name_with_dosage %>
+        <br/>
+        Instructions: <%= prescription.instructions %>
 
-        <a href="/delete_prescription_from_encounter/<%= prescription.id %>">
-          Delete
+        <a href="/prescriptions/<%= prescription.id %>">
+          see details
         </a>
 
       </li>

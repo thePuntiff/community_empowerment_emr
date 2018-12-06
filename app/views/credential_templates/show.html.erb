@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Credential #<%= @credential.id %> details
+      More about the <b><%= @credential.name %> </b> credential
     </h1>
 
     <div class="row mb-3">
@@ -24,34 +24,6 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @credential.name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@credential.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@credential.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <%= render partial: "credential_templates/credential_provider_credentials" %>
   </div>
 </div>
 
