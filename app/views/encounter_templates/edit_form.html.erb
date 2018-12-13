@@ -26,7 +26,7 @@
           Seen by
         </label>
     
-        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.provider_id), :class => "form-control") %>
+        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.provider_id), :include_blank => 'Select a provider', :class => "form-control") %>
       </div>
     </div>
   
@@ -36,7 +36,7 @@
           Approving provider
         </label>
     
-        <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :class => "form-control") %>
+        <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :include_blank => 'Select an approving provider', :class => "form-control") %>
       </div>
     </div>  
   </div>  

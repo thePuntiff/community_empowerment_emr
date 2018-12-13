@@ -7,13 +7,13 @@
   <input type="hidden" name="encounter_id" value="<%= @encounter.id %>">
 
 
-  <b>Add a new prescription for this visit</b>d
+  <b>Add a new prescription for this visit</b>
   <div class="form-group">
     <label for="medication_id">
       Medication
     </label>
 
-    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage, @prescription.medication_id), :class => "form-control") %>
+    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage, @prescription.medication_id), :include_blank => 'Select a medication', :class => "form-control") %>
   </div>
   
   <div class="form-group">

@@ -11,24 +11,27 @@
         </a>
       </div>
 
-      <div class="col">
-        <a href="/providers/<%= @provider.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit provider
-        </a>
-      </div>
+      <% if @provider.id == current_provider.id %>
+        <div class="col">
+          <a href="/providers/edit" class="btn btn-block btn-outline-secondary">
+            Edit provider
+          </a>
+        </div>
+      <% else %>
+      <% end %>
 
     </div>
 
     <dl>
       <dt>
-        Firstname
+        First name
       </dt>
       <dd>
         <%= @provider.firstname %>
       </dd>
 
       <dt>
-        Lastname
+        Last name
       </dt>
       <dd>
         <%= @provider.lastname %>

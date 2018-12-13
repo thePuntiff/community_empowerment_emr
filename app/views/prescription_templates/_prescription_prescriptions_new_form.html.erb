@@ -13,7 +13,7 @@
       Medication
     </label>
 
-    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage, @prescription.medication_id), :class => "form-control") %>
+    <%= select_tag(:medication_id, options_from_collection_for_select(Medication.all, :id, :name_with_dosage), :include_blank => 'Select a medication', :class => "form-control") %>
   </div>
   
   <div class="form-group">

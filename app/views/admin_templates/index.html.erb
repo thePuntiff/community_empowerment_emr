@@ -31,3 +31,15 @@
     </li> 
   </ul>
 </div>
+
+<% pie_chart Sex.group(:name).count %>
+
+<% pie_chart Prescription.group(:medication_id).count, donut: true%>
+<% bar_chart Prescription.group(:medication_id).count%>
+
+
+
+<% pie_chart Patient.group(:firstname).count %>
+<% pie_chart Patient.group(:firstname).count, download: true %>
+<% bar_chart Patient.group(:sex_id).count(:sex_id) %>
+<% bar_chart Prescription.group(:medication_id).count(:medication_id) %>

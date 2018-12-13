@@ -28,7 +28,7 @@
       Med type
     </label>
 
-    <%= select_tag(:med_type_id, options_from_collection_for_select(MedType.all, :id, :name, @medication.med_type_id), :class => "form-control") %>
+    <%= select_tag(:med_type_id, options_from_collection_for_select(MedType.all, :id, :name, @medication.med_type_id), :include_blank => 'Select a med type', :class => "form-control") %>
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

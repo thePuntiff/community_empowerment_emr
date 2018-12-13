@@ -92,6 +92,7 @@ GEM
       rails (>= 3.1)
     builder (3.2.3)
     byebug (10.0.2)
+    chartkick (3.0.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -118,6 +119,8 @@ GEM
       uri-ssh_git (>= 2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.1.0)
+      activesupport (>= 4.2)
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
@@ -312,9 +315,11 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.17.43)
   bootstrap4-kaminari-views
   byebug
+  chartkick
   coffee-rails (~> 4.2)
   devise
   draft_generators!
+  groupdate
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
@@ -337,4 +342,4 @@ DEPENDENCIES
   web_git!
 
 BUNDLED WITH
-   1.15.2
+   1.15.4

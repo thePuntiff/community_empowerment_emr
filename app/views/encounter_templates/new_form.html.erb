@@ -14,7 +14,7 @@
           Patient
         </label>
     
-        <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :fullname, @encounter.patient_id), :class => "form-control") %>
+        <%= select_tag(:patient_id, options_from_collection_for_select(Patient.all, :id, :fullname, @encounter.patient_id), :include_blank => 'Select a patient', :class => "form-control") %>
       </div>
     </div>  
     
@@ -24,7 +24,7 @@
           Seen by
         </label>
     
-        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.provider_id), :class => "form-control") %>
+        <%= select_tag(:provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.provider_id), :include_blank => 'Select a provider', :class => "form-control") %>
       </div>
     </div>
     
@@ -35,7 +35,7 @@
         </label>
         
     
-        <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :class => "form-control") %>
+        <%= select_tag(:approving_provider_id, options_from_collection_for_select(Provider.all, :id, :fullname, @encounter.approving_provider_id), :include_blank => 'Select an approving provider', :class => "form-control") %>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@
           Location
         </label>
     
-        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, @encounter.location_id), :class => "form-control") %>
+        <%= select_tag(:location_id, options_from_collection_for_select(Location.all, :id, :name, @encounter.location_id), :include_blank => 'Select a location', :class => "form-control") %>
       </div>
     </div>
     
